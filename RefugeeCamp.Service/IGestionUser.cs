@@ -5,7 +5,7 @@ using Service.Pattern;
 
 namespace RefugeeCamp.Service
 {
-   public interface IGestionJobOffer:IService<joboffer>
+   public interface IGestionUser:IService<user>
     {
         //IEnumerable<joboffer> ListerProductByCategoryIn2008(String name);
     }

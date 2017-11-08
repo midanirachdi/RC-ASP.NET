@@ -59,16 +59,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\camp.cs" />
+    <Compile Include="Models\comment.cs" />
     <Compile Include="Models\donation.cs" />
     <Compile Include="Models\joboffer.cs" />
-    <Compile Include="Models\media_news.cs" />
+    <Compile Include="Models\medicalfolder.cs" />
     <Compile Include="Models\medium.cs" />
     <Compile Include="Models\need.cs" />
     <Compile Include="Models\news.cs" />
-    <Compile Include="Models\provider.cs" />
     <Compile Include="Models\refugee.cs" />
     <Compile Include="Models\stock.cs" />
     <Compile Include="Models\stocknotification.cs" />
+    <Compile Include="Models\tag.cs" />
+    <Compile Include="Models\task.cs" />
+    <Compile Include="Models\topic.cs" />
     <Compile Include="Models\user.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

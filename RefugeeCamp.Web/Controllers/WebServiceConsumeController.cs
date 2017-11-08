@@ -18,7 +18,7 @@ namespace RefugeeCamp.Web.Controllers
         // GET: WebServiceConsume
         public async Task<ActionResult> Index()
         {
-            List<user> EmpInfo = new List<user>();
+            List<user> users = new List<user>();
 
             using (var client = new HttpClient())
             {
@@ -29,21 +29,21 @@ namespace RefugeeCamp.Web.Controllers
                 //Define request data format  
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                //Sending request to find web api REST service resource GetAllEmployees using HttpClient  
+                //Sending request to find web api REST service resource doList using HttpClient  
                 HttpResponseMessage Res = await client.GetAsync("refugeesCamp-web/api/users");
 
                 //Checking the response is successful or not which is sent using HttpClient  
                 if (Res.IsSuccessStatusCode)
                 {
                     //Storing the response details recieved from web api   
-                    var EmpResponse = Res.Content.ReadAsStringAsync().Result;
+                    var usersResponse = Res.Content.ReadAsStringAsync().Result;
 
-                    //Deserializing the response recieved from web api and storing into the Employee list  
-                    EmpInfo = JsonConvert.DeserializeObject<List<user>>(EmpResponse);
+                    //Deserializing the response recieved from web api and storing into the users list  
+                    users = JsonConvert.DeserializeObject<List<user>>(usersResponse);
 
                 }
                 //returning the employee list to view  
-                return View(EmpInfo);
+                return View(users);
             }
         }
     }

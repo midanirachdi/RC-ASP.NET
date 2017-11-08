@@ -49,10 +49,7 @@ namespace Service.Pattern
             utw.GetRepository<T>().Update(entity);
             
         }
-        public IEnumerable<T> GetMany(Expression<Func<T, bool>> filter = null, Expression<Func<T, bool>> orderBy = null)
-        {
-            return utw.GetRepository<T>().GetMany(filter, orderBy);
-        }
+      
         public void Commit()
         {
             utw.commit();

@@ -4,12 +4,12 @@ using Service.Pattern;
 
 namespace RefugeeCamp.Service
 {
-    public class GestionJobOffer : Service<joboffer>, IGestionJobOffer
+    public class GestionUser : Service<user>, IGestionUser
     {
         static DatabaseFactory dbFactory = new DatabaseFactory();
         static UnitOfWork utw = new UnitOfWork(dbFactory);
         
-        public GestionJobOffer() : base(utw)
+        public GestionUser() : base(utw)
         {
         }
 

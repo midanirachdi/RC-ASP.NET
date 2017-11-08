@@ -65,39 +65,27 @@
     <Compile Include="Infrastructures\RespositoryBase.cs" />
     <Compile Include="Infrastructures\UnitOfWork.cs" />
     <Compile Include="Mapping\campMap.cs" />
+    <Compile Include="Mapping\commentMap.cs" />
     <Compile Include="Mapping\donationMap.cs" />
     <Compile Include="Mapping\jobofferMap.cs" />
-    <Compile Include="Mapping\media_newsMap.cs" />
+    <Compile Include="Mapping\medicalfolderMap.cs" />
     <Compile Include="Mapping\mediumMap.cs" />
     <Compile Include="Mapping\needMap.cs" />
     <Compile Include="Mapping\newsMap.cs" />
-    <Compile Include="Mapping\providerMap.cs" />
     <Compile Include="Mapping\refugeeMap.cs" />
     <Compile Include="Mapping\stockMap.cs" />
     <Compile Include="Mapping\stocknotificationMap.cs" />
+    <Compile Include="Mapping\tagMap.cs" />
+    <Compile Include="Mapping\taskMap.cs" />
+    <Compile Include="Mapping\topicMap.cs" />
     <Compile Include="Mapping\userMap.cs" />
-    <Compile Include="Migrations\201711051520137_a.cs" />
-    <Compile Include="Migrations\201711051520137_a.Designer.cs">
-      <DependentUpon>201711051520137_a.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711051522299_d.cs" />
-    <Compile Include="Migrations\201711051522299_d.Designer.cs">
-      <DependentUpon>201711051522299_d.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711051530315_e.cs" />
-    <Compile Include="Migrations\201711051530315_e.Designer.cs">
-      <DependentUpon>201711051530315_e.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711051531583_e1.cs" />
-    <Compile Include="Migrations\201711051531583_e1.Designer.cs">
-      <DependentUpon>201711051531583_e1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="refugeescampContext.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -105,20 +93,6 @@
       <Project>{bcb41839-7d90-43dc-9af2-8947e0a883fe}</Project>
       <Name>RefugeeCamp.Domain</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711051520137_a.resx">
-      <DependentUpon>201711051520137_a.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711051522299_d.resx">
-      <DependentUpon>201711051522299_d.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711051530315_e.resx">
-      <DependentUpon>201711051530315_e.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711051531583_e1.resx">
-      <DependentUpon>201711051531583_e1.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

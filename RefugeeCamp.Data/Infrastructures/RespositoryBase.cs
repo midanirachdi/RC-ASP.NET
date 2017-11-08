@@ -78,18 +78,6 @@ namespace RefugeeCamp.Data.Infrastructures
             }
             return dbset.Where(condition).OrderBy(orederby);
         }
-        public virtual IEnumerable<T> GetMany(Expression<Func<T, bool>> where = null, Expression<Func<T, bool>> orderBy = null)
-        {
-            IQueryable<T> Query = dbset;
-            if (where != null)
-            {
-                Query = Query.Where(where);
-            }
-            if (orderBy != null)
-            {
-                Query = Query.OrderBy(orderBy);
-            }
-            return Query;
-        }
+       
     }
 }

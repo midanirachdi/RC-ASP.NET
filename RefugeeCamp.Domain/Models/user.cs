@@ -8,9 +8,12 @@ namespace RefugeeCamp.Domain.Models
         public user()
         {
             this.camps = new List<camp>();
+            this.comments = new List<comment>();
             this.joboffers = new List<joboffer>();
             this.joboffers1 = new List<joboffer>();
             this.needs = new List<need>();
+            this.tasks = new List<task>();
+            this.topics = new List<topic>();
         }
 
         public string role { get; set; }
@@ -26,8 +29,11 @@ namespace RefugeeCamp.Domain.Models
         public Nullable<int> camp_ID { get; set; }
         public virtual ICollection<camp> camps { get; set; }
         public virtual camp camp { get; set; }
+        public virtual ICollection<comment> comments { get; set; }
         public virtual ICollection<joboffer> joboffers { get; set; }
         public virtual ICollection<joboffer> joboffers1 { get; set; }
         public virtual ICollection<need> needs { get; set; }
+        public virtual ICollection<task> tasks { get; set; }
+        public virtual ICollection<topic> topics { get; set; }
     }
 }
