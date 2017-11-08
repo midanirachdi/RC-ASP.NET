@@ -7,6 +7,6 @@ namespace RefugeeCamp.Service
 {
    public interface IGestionTask:IService<task>
     {
-       // IEnumerable<String> ListerTaskByUsername();
+    //   IEnumerable<user> ListerTaskByUsername();
     }
 }

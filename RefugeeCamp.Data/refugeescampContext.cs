@@ -14,6 +14,7 @@ namespace RefugeeCamp.Data
         public refugeescampContext()
             : base("Name=refugeescampContext")
         {
+
         }
 
         public DbSet<camp> camps { get; set; }

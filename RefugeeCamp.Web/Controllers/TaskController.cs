@@ -22,8 +22,9 @@ namespace RefugeeCamp.Web.Controllers
         // GET: Task
         public ActionResult Index()
         {
-        
-            return View(gt.FindByCondition());
+
+            //ViewBag.users = gt.ListerTaskByUsername();
+            return View(gt.QueryObjectGraph("User"));
         }
 
         // GET: Task/Details/5

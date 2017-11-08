@@ -59,6 +59,12 @@ namespace RefugeeCamp.Data.Infrastructures
             MyContext.Entry(entity).State = EntityState.Modified;
         }
 
+        public IQueryable<T> QueryObjectGraph(string children, Expression<Func<T, bool>> filter = null)
+        {
+            if (filter ==null)
+            return dbset.Include(children);
+            return dbset.Include(children).Where(filter);
+        }
         public IEnumerable<T> FindByCondition(Expression<Func<T, bool>> condition = null, 
                                               Expression<Func<T, bool>> orederby = null)
         {

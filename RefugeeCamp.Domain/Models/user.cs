@@ -35,5 +35,6 @@ namespace RefugeeCamp.Domain.Models
         public virtual ICollection<need> needs { get; set; }
         public virtual ICollection<task> tasks { get; set; }
         public virtual ICollection<topic> topics { get; set; }
+        public string FullName { get { return firstName + " " + lastName; } }
     }
 }

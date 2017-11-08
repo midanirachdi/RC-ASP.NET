@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 
 namespace RefugeeCamp.Data.Infrastructures
@@ -19,5 +20,6 @@ namespace RefugeeCamp.Data.Infrastructures
             Expression<Func<T, bool>> condition=null,
             Expression<Func<T, bool>> orederby = null);
 
+        IQueryable<T> QueryObjectGraph(string children, Expression<Func<T, bool>> filter = null);
     }
 }

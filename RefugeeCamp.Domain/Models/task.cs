@@ -11,7 +11,7 @@ namespace RefugeeCamp.Domain.Models
         public string name { get; set; }
         public Nullable<System.DateTime> startDate { get; set; }
         public string status { get; set; }
-        public Nullable<int> UserId { get; set; }
+        public int? UserId { get; set; }
         public virtual user user { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using RefugeeCamp.Data.Infrastructures;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 
 namespace Service.Pattern
@@ -22,6 +23,11 @@ namespace Service.Pattern
         public IEnumerable<T> FindByCondition(Expression<Func<T, bool>> condition = null, Expression<Func<T, bool>> orederby = null)
         {
             return utw.GetRepository<T>().FindByCondition(condition, orederby);
+        }
+
+        public IQueryable<T> QueryObjectGraph(string children, Expression<Func<T, bool>> filter = null)
+        {
+            return utw.GetRepository<T>().QueryObjectGraph(children,filter);
         }
 
         public T FindById(string id)

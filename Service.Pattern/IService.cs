@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 
 namespace Service.Pattern
@@ -16,6 +17,7 @@ namespace Service.Pattern
             Expression<Func<T, bool>> condition = null,
             Expression<Func<T, bool>> orederby = null);
 
+        IQueryable<T> QueryObjectGraph(string children, Expression<Func<T, bool>> filter = null);
         void Commit();
     }
 }

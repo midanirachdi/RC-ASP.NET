@@ -11,23 +11,30 @@ namespace RefugeeCamp.Service
     {
         static DatabaseFactory dbFactory = new DatabaseFactory();
         static UnitOfWork utw = new UnitOfWork(dbFactory);
-        
+
         public GestionTask() : base(utw)
         {
         }
 
-        //public IEnumerable<string> ListerTaskByUsername()
+        //public IEnumerable<user> ListerTaskByUsername()
         //{
         //    //utw.GetRepository<task>().
         //    //    FindByCondition(x => x.UserId. == name).Where(x => x.DateProd.Year == 2008);
 
-        //    //var tasklist =  utw.GetRepository<task>().FindByCondition();
+
+        //    //var tasklist = utw.GetRepository<task>().FindByCondition();
         //    //var userlist = utw.GetRepository<user>().FindByCondition();
 
         //    //var TaskByUser = from task in tasklist
-        //    //    from user in userlist
-        //    //    where task.UserId == user.id
-        //    //    select new {task, user.firstName};
+        //    //                 from user in userlist
+        //    //                 where task.UserId == user.id
+        //    //                 select user;
+
+        //    //return TaskByUser;
+
+
+
+
 
         //    //return TaskByUser;
 
@@ -36,5 +43,6 @@ namespace RefugeeCamp.Service
         //    //where Table.Id == Reservation.IdTable 
         //    //select Table;
         //}
+
     }
 }
