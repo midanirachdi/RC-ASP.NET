@@ -40,8 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GestionMedicalFolder.cs" />
     <Compile Include="GestionUser.cs" />
     <Compile Include="GestionTask.cs" />
+    <Compile Include="IGestionMedicalFolder.cs" />
     <Compile Include="IGestionUser.cs" />
     <Compile Include="IGestionTask.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
