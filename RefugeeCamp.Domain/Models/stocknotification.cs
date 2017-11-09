@@ -9,7 +9,7 @@ namespace RefugeeCamp.Domain.Models
         public Nullable<System.DateTime> dateOfNotification { get; set; }
         public string message { get; set; }
         public int status { get; set; }
-        public Nullable<int> stock_id { get; set; }
+        public Nullable<int> StockId { get; set; }
         public virtual stock stock { get; set; }
     }
 }

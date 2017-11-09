@@ -6,7 +6,7 @@ using Service.Pattern;
 namespace RefugeeCamp.Service
 {
    public interface IGestionTask:IService<task>
-    {
-    //   IEnumerable<user> ListerTaskByUsername();
-    }
+   {
+       int GetTaskNbr();
+   }
 }

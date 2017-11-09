@@ -7,6 +7,7 @@ namespace RefugeeCamp.Domain.Models
     {
         public evenement()
         {
+            this.ratings = new List<rating>();
             this.refugees = new List<refugee>();
             this.users = new List<user>();
         }
@@ -19,6 +20,7 @@ namespace RefugeeCamp.Domain.Models
         public int nbplace { get; set; }
         public Nullable<int> creator_id { get; set; }
         public virtual user user { get; set; }
+        public virtual ICollection<rating> ratings { get; set; }
         public virtual ICollection<refugee> refugees { get; set; }
         public virtual ICollection<user> users { get; set; }
     }

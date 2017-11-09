@@ -26,6 +26,14 @@ namespace RefugeeCamp.Web.Controllers
             //ViewBag.users = gt.ListerTaskByUsername();
             return View(gt.QueryObjectGraph("User"));
         }
+        
+        [HttpPost]
+        public ActionResult Index(string searchString)
+        {
+
+            var res = gt.QueryObjectGraph("User",t=>t.name.Contains(searchString));
+            return View(res);
+        }
 
         // GET: Task/Details/5
         public ActionResult Details(int id)
@@ -38,9 +46,10 @@ namespace RefugeeCamp.Web.Controllers
         {
             
             var list = gu.FindByCondition();
+            ViewBag.users = new SelectList(list, "id", "FullName");
             //        public string FullName { get { return firstName + " " + lastName; } }
-            ViewBag.users = new SelectList(list,"id", "FullName");
-           
+
+
             return View();
         }
 
@@ -58,6 +67,9 @@ namespace RefugeeCamp.Web.Controllers
         // GET: Task/Edit/5
         public ActionResult Edit(int id)
         {
+            //SelectListItem
+            var list = gu.FindByCondition();
+            ViewBag.users = new SelectList(list, "id", "FullName");
             return View(gt.FindById(id));
         }
 

@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\camp.cs" />
+    <Compile Include="Models\commande.cs" />
     <Compile Include="Models\comment.cs" />
     <Compile Include="Models\donation.cs" />
     <Compile Include="Models\evenement.cs" />
@@ -67,6 +68,9 @@
     <Compile Include="Models\medium.cs" />
     <Compile Include="Models\need.cs" />
     <Compile Include="Models\news.cs" />
+    <Compile Include="Models\product.cs" />
+    <Compile Include="Models\provider.cs" />
+    <Compile Include="Models\rating.cs" />
     <Compile Include="Models\refugee.cs" />
     <Compile Include="Models\stock.cs" />
     <Compile Include="Models\stocknotification.cs" />

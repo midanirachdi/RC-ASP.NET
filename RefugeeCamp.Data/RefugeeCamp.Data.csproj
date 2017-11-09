@@ -65,6 +65,7 @@
     <Compile Include="Infrastructures\RespositoryBase.cs" />
     <Compile Include="Infrastructures\UnitOfWork.cs" />
     <Compile Include="Mapping\campMap.cs" />
+    <Compile Include="Mapping\commandeMap.cs" />
     <Compile Include="Mapping\commentMap.cs" />
     <Compile Include="Mapping\donationMap.cs" />
     <Compile Include="Mapping\evenementMap.cs" />
@@ -73,6 +74,9 @@
     <Compile Include="Mapping\mediumMap.cs" />
     <Compile Include="Mapping\needMap.cs" />
     <Compile Include="Mapping\newsMap.cs" />
+    <Compile Include="Mapping\productMap.cs" />
+    <Compile Include="Mapping\providerMap.cs" />
+    <Compile Include="Mapping\ratingMap.cs" />
     <Compile Include="Mapping\refugeeMap.cs" />
     <Compile Include="Mapping\stockMap.cs" />
     <Compile Include="Mapping\stocknotificationMap.cs" />

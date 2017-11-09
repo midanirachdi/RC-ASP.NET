@@ -20,12 +20,12 @@ namespace RefugeeCamp.Data.Mapping
             this.Property(t => t.dateOfNotification).HasColumnName("dateOfNotification");
             this.Property(t => t.message).HasColumnName("message");
             this.Property(t => t.status).HasColumnName("status");
-            this.Property(t => t.stock_id).HasColumnName("stock_id");
+            this.Property(t => t.StockId).HasColumnName("StockId");
 
             // Relationships
             this.HasOptional(t => t.stock)
                 .WithMany(t => t.stocknotifications)
-                .HasForeignKey(d => d.stock_id);
+                .HasForeignKey(d => d.StockId);
 
         }
     }

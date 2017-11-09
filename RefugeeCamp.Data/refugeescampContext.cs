@@ -17,6 +17,7 @@ namespace RefugeeCamp.Data
         }
 
         public DbSet<camp> camps { get; set; }
+        public DbSet<commande> commandes { get; set; }
         public DbSet<comment> comments { get; set; }
         public DbSet<donation> donations { get; set; }
         public DbSet<evenement> evenements { get; set; }
@@ -25,6 +26,9 @@ namespace RefugeeCamp.Data
         public DbSet<medicalfolder> medicalfolders { get; set; }
         public DbSet<need> needs { get; set; }
         public DbSet<news> news { get; set; }
+        public DbSet<product> products { get; set; }
+        public DbSet<provider> providers { get; set; }
+        public DbSet<rating> ratings { get; set; }
         public DbSet<refugee> refugees { get; set; }
         public DbSet<stock> stocks { get; set; }
         public DbSet<stocknotification> stocknotifications { get; set; }
@@ -36,6 +40,7 @@ namespace RefugeeCamp.Data
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new campMap());
+            modelBuilder.Configurations.Add(new commandeMap());
             modelBuilder.Configurations.Add(new commentMap());
             modelBuilder.Configurations.Add(new donationMap());
             modelBuilder.Configurations.Add(new evenementMap());
@@ -44,6 +49,9 @@ namespace RefugeeCamp.Data
             modelBuilder.Configurations.Add(new medicalfolderMap());
             modelBuilder.Configurations.Add(new needMap());
             modelBuilder.Configurations.Add(new newsMap());
+            modelBuilder.Configurations.Add(new productMap());
+            modelBuilder.Configurations.Add(new providerMap());
+            modelBuilder.Configurations.Add(new ratingMap());
             modelBuilder.Configurations.Add(new refugeeMap());
             modelBuilder.Configurations.Add(new stockMap());
             modelBuilder.Configurations.Add(new stocknotificationMap());
