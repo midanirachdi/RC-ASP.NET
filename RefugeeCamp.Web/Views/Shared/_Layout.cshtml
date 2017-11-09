@@ -6,6 +6,7 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/jqueryui")
 
 </head>
 <body>
@@ -39,6 +40,23 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/bundles/jqueryui")
+<script>
+    $(function() {
+        $(".jqueryui-marker-datepicker").datepicker({
+            dateFormat: "yy-mm-dd",
+            changeYear: true,
+            showOn: "button"
+        }).css("display", "inline-block")
+        .next("button").button({
+            icons: { primary: "ui-icon-calendar" },
+            text : false
+            });
+
+        $(".datetimepicker1").datetimepicker();
+    });
+    
+</script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

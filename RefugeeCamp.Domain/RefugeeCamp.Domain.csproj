@@ -61,6 +61,7 @@
     <Compile Include="Models\camp.cs" />
     <Compile Include="Models\comment.cs" />
     <Compile Include="Models\donation.cs" />
+    <Compile Include="Models\evenement.cs" />
     <Compile Include="Models\joboffer.cs" />
     <Compile Include="Models\medicalfolder.cs" />
     <Compile Include="Models\medium.cs" />

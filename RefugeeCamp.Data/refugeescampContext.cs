@@ -14,12 +14,12 @@ namespace RefugeeCamp.Data
         public refugeescampContext()
             : base("Name=refugeescampContext")
         {
-
         }
 
         public DbSet<camp> camps { get; set; }
         public DbSet<comment> comments { get; set; }
         public DbSet<donation> donations { get; set; }
+        public DbSet<evenement> evenements { get; set; }
         public DbSet<joboffer> joboffers { get; set; }
         public DbSet<medium> media { get; set; }
         public DbSet<medicalfolder> medicalfolders { get; set; }
@@ -38,6 +38,7 @@ namespace RefugeeCamp.Data
             modelBuilder.Configurations.Add(new campMap());
             modelBuilder.Configurations.Add(new commentMap());
             modelBuilder.Configurations.Add(new donationMap());
+            modelBuilder.Configurations.Add(new evenementMap());
             modelBuilder.Configurations.Add(new jobofferMap());
             modelBuilder.Configurations.Add(new mediumMap());
             modelBuilder.Configurations.Add(new medicalfolderMap());

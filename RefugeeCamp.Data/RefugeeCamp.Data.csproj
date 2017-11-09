@@ -67,6 +67,7 @@
     <Compile Include="Mapping\campMap.cs" />
     <Compile Include="Mapping\commentMap.cs" />
     <Compile Include="Mapping\donationMap.cs" />
+    <Compile Include="Mapping\evenementMap.cs" />
     <Compile Include="Mapping\jobofferMap.cs" />
     <Compile Include="Mapping\medicalfolderMap.cs" />
     <Compile Include="Mapping\mediumMap.cs" />

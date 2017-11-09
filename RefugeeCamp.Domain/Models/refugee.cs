@@ -5,6 +5,11 @@ namespace RefugeeCamp.Domain.Models
 {
     public partial class refugee
     {
+        public refugee()
+        {
+            this.evenements = new List<evenement>();
+        }
+
         public int id { get; set; }
         public string adress { get; set; }
         public Nullable<System.DateTime> dateOfBirth { get; set; }
@@ -23,5 +28,6 @@ namespace RefugeeCamp.Domain.Models
         public Nullable<int> camp_ID { get; set; }
         public virtual camp camp { get; set; }
         public virtual medicalfolder medicalfolder { get; set; }
+        public virtual ICollection<evenement> evenements { get; set; }
     }
 }
