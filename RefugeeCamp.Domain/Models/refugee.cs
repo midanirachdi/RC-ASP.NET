@@ -24,7 +24,7 @@ namespace RefugeeCamp.Domain.Models
         public int phoneNumber { get; set; }
         public string sex { get; set; }
         public int yearsOfExperience { get; set; }
-        public Nullable<int> fiche_id { get; set; }
+        public Nullable<int> fiche_ID { get; set; }
         public Nullable<int> camp_ID { get; set; }
         public virtual camp camp { get; set; }
         public virtual medicalfolder medicalfolder { get; set; }
