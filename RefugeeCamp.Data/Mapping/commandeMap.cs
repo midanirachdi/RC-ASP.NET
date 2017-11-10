@@ -29,9 +29,13 @@ namespace RefugeeCamp.Data.Mapping
             this.Property(t => t.totalPrice).HasColumnName("totalPrice");
             this.Property(t => t.Admin).HasColumnName("Admin");
             this.Property(t => t.Product).HasColumnName("Product");
+            this.Property(t => t.Provider).HasColumnName("Provider");
             this.Property(t => t.Stock).HasColumnName("Stock");
 
             // Relationships
+            this.HasOptional(t => t.provider1)
+                .WithMany(t => t.commandes)
+                .HasForeignKey(d => d.Provider);
             this.HasOptional(t => t.stock1)
                 .WithMany(t => t.commandes)
                 .HasForeignKey(d => d.Stock);
