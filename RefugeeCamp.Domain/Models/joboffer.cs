@@ -19,7 +19,7 @@ namespace RefugeeCamp.Domain.Models
         public string title { get; set; }
         public Nullable<int> CAMPCHEF_ID { get; set; }
         public Nullable<int> DISTRICTCHEF_ID { get; set; }
-        public virtual user user { get; set; }
-        public virtual user user1 { get; set; }
+        public virtual CampChef CampChef { get; set; }
+        public virtual DistrictChef DistrictChef { get; set; }
     }
 }

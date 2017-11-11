@@ -19,7 +19,7 @@ namespace RefugeeCamp.Domain.Models
         public Nullable<int> Stock { get; set; }
         public virtual provider provider1 { get; set; }
         public virtual stock stock1 { get; set; }
-        public virtual user user { get; set; }
+        public virtual Admin Admin1 { get; set; }
         public virtual product product1 { get; set; }
     }
 }

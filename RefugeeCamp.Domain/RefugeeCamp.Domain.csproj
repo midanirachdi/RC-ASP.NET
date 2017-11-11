@@ -58,9 +58,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\camp.cs" />
+    <Compile Include="Models\CampChef.cs" />
     <Compile Include="Models\commande.cs" />
     <Compile Include="Models\comment.cs" />
+    <Compile Include="Models\DistrictChef.cs" />
     <Compile Include="Models\donation.cs" />
     <Compile Include="Models\evenement.cs" />
     <Compile Include="Models\joboffer.cs" />
@@ -78,6 +81,7 @@
     <Compile Include="Models\task.cs" />
     <Compile Include="Models\topic.cs" />
     <Compile Include="Models\user.cs" />
+    <Compile Include="Models\Volunteer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

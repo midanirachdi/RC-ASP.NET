@@ -41,7 +41,7 @@ namespace RefugeeCamp.Data.Mapping
                     });
 
             this.HasOptional(t => t.user)
-                .WithMany(t => t.evenements)
+                .WithMany(t => t.evenements1)
                 .HasForeignKey(d => d.creator_id);
 
         }

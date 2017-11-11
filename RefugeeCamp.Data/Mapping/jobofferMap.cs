@@ -50,11 +50,11 @@ namespace RefugeeCamp.Data.Mapping
             this.Property(t => t.DISTRICTCHEF_ID).HasColumnName("DISTRICTCHEF_ID");
 
             // Relationships
-            this.HasOptional(t => t.user)
+            this.HasOptional(t => t.DistrictChef)
                 .WithMany(t => t.joboffers)
                 .HasForeignKey(d => d.DISTRICTCHEF_ID);
-            this.HasOptional(t => t.user1)
-                .WithMany(t => t.joboffers1)
+            this.HasOptional(t => t.CampChef)
+                .WithMany(t => t.joboffers)
                 .HasForeignKey(d => d.CAMPCHEF_ID);
 
         }
