@@ -20,9 +20,19 @@ namespace RefugeeCamp.Service.utile
         static public string Decode64ToString(string toDecode)
         {
             string base64Decoded;
-            byte[] data = System.Convert.FromBase64String(toDecode);
-            base64Decoded = System.Text.UTF8Encoding.UTF8.GetString(data);
-            return base64Decoded;
+            byte[] data = null;
+            try
+            {
+              data = System.Convert.FromBase64String(toDecode + "=");
+                base64Decoded = System.Text.UTF8Encoding.UTF8.GetString(data);
+                return base64Decoded;
+            }
+            catch (Exception e)
+            {
+                data = System.Convert.FromBase64String(toDecode);
+                base64Decoded = System.Text.UTF8Encoding.UTF8.GetString(data);
+                return base64Decoded;
+            }
         }
     }
 }

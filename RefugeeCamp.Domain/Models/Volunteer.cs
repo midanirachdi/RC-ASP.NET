@@ -10,9 +10,9 @@ namespace RefugeeCamp.Domain.Models
     {
         public Volunteer():base()
         {
-
+            this.evenements1 = new List<evenement>();
         }
 
-   
+        public virtual ICollection<evenement> evenements1 { get; set; }
     }
 }

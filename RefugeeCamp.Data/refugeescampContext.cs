@@ -59,6 +59,8 @@ namespace RefugeeCamp.Data
             modelBuilder.Configurations.Add(new taskMap());
             modelBuilder.Configurations.Add(new topicMap());
             modelBuilder.Configurations.Add(new userMap());
+            modelBuilder.Configurations.Add(new DistrictChefMap());
+            modelBuilder.Configurations.Add(new VolunteerMap());
         }
     }
 }

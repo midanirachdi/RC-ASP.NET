@@ -1,0 +1,9 @@
+﻿@using RefugeeCamp.Web.Security
+
+
+<h2>Welcome @SessionPersister.User</h2>
+<br />
+@ViewBag.type
+
+<br />
+<a href="@Url.Action("Logout","Account")">Logout</a>

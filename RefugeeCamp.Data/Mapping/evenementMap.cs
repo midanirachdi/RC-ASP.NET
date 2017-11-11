@@ -40,9 +40,7 @@ namespace RefugeeCamp.Data.Mapping
                         m.MapRightKey("refugee_id");
                     });
 
-            this.HasOptional(t => t.user)
-                .WithMany(t => t.evenements1)
-                .HasForeignKey(d => d.creator_id);
+
 
         }
     }
