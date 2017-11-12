@@ -13,7 +13,7 @@ namespace RefugeeCamp.Data.Mapping
 
         public VolunteerMap()
         {
-            this.HasMany(t => t.evenements1)
+            this.HasMany(t => t.events)
                 .WithMany(t => t.Volunteers)
                 .Map(m =>
                 {

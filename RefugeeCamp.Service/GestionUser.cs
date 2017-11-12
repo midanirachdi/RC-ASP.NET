@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
@@ -7,6 +8,7 @@ using Newtonsoft.Json;
 using RefugeeCamp.Data.Infrastructures;
 using RefugeeCamp.Domain.Models;
 using RefugeeCamp.Service.utile;
+using RefugeeCamp.Service.Utile;
 using Service.Pattern;
 
 namespace RefugeeCamp.Service
@@ -43,6 +45,23 @@ namespace RefugeeCamp.Service
             return token;
         }
 
+
+        public async Task callRegister(user u,string token)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:18080/refugeesCamp-web/api/");
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                if (token != null)
+                {
+                    token = token.Substring(7);
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Barear",token);
+                }
+                HttpResponseMessage response = await client.PostAsync("users",UserJsonSerializer.Serialize(u)).ConfigureAwait(false);
+               
+            }
+        }
 
         public user GetUserByToken(string token)
         {

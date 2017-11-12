@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using Newtonsoft.Json;
 using RefugeeCamp.Domain.Models;
 using RefugeeCamp.Service;
-
+using  RefugeeCamp.Domain.Factory;
 using RefugeeCamp.Web.Security;
 
 using RefugeeCamp.Web.ViewModels;
@@ -63,5 +63,34 @@ namespace RefugeeCamp.Web.Controllers
             SessionPersister.Token = null;
             return RedirectToAction("Index");
         }
+
+
+        public ActionResult Register()
+        {
+            RegisterViewModel rvm=new RegisterViewModel();
+            rvm.UserType = "Volunteer";
+            return View("Register",rvm);
+        }
+
+
+        [HttpPost]
+        public ActionResult Register(RegisterViewModel rvm)
+        {
+            if(SessionPersister.User==null)
+                        rvm.UserType = "Volunteer";
+                    
+            user u = UserFactory.getInstance(rvm.UserType);
+            u.firstName = rvm.FirstName;
+            u.lastName = rvm.LastName;
+            u.password = rvm.Password;
+            u.email = rvm.Email;
+            string token = null;
+            if (SessionPersister.User != null)
+                token = SessionPersister.Token;
+            gu.callRegister(u, token).ConfigureAwait(false);
+            return View("Index");
+        }
+
+
     }
 }

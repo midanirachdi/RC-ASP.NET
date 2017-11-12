@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Factory\UserFactory.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\camp.cs" />
     <Compile Include="Models\CampChef.cs" />

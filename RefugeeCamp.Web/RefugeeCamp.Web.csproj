@@ -228,6 +228,7 @@
     <Compile Include="ClientForm.aspx.designer.cs">
       <DependentUpon>ClientForm.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\AccesDeniedController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TaskController.cs" />
@@ -241,6 +242,8 @@
     <Compile Include="SignalR\NotificationHub.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\AccountViewModel.cs" />
+    <Compile Include="ViewModels\RegisterViewModel.cs" />
+    <Compile Include="ViewModels\UserTypeSelect.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminForm.aspx" />
@@ -345,6 +348,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Account\Success.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\AccesDenied\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
