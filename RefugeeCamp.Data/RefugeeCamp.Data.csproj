@@ -67,6 +67,7 @@
     <Compile Include="Mapping\campMap.cs" />
     <Compile Include="Mapping\commandeMap.cs" />
     <Compile Include="Mapping\commentMap.cs" />
+    <Compile Include="Mapping\courseMap.cs" />
     <Compile Include="Mapping\DistrictChefMap.cs" />
     <Compile Include="Mapping\donationMap.cs" />
     <Compile Include="Mapping\evenementMap.cs" />
