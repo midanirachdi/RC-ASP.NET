@@ -1,4 +1,5 @@
-﻿@model IEnumerable<RefugeeCamp.Domain.Models.task>
+﻿@using RefugeeCamp.Web.Security
+@model IEnumerable<RefugeeCamp.Domain.Models.task>
 
 @{
     ViewBag.Title = "Index";
@@ -10,7 +11,7 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 
-    @using (Html.BeginForm("search"))
+@using (Html.BeginForm("search"))
     {
         <table>
             <tr>

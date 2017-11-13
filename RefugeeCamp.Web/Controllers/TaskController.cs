@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using RefugeeCamp.Domain.Models;
 using RefugeeCamp.Service;
+using RefugeeCamp.Web.Security;
 
 namespace RefugeeCamp.Web.Controllers
 {
@@ -23,11 +24,13 @@ namespace RefugeeCamp.Web.Controllers
         // GET: Task
         public ActionResult Index()
         {
+            ViewBag.usr =  SessionPersister.User.GetType();
             return View(gt.QueryObjectGraph("User"));
         }
         public ActionResult IndexUser()
         {
-            return View(gt.QueryObjectGraph("User"));
+            String currentUsermail = SessionPersister.User.email;
+            return View(gt.QueryObjectGraph("User",t=>t.user.email==currentUsermail));
         }
         [HttpPost]
         public ActionResult IndexUser(string searchString)

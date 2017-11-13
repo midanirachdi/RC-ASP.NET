@@ -22,5 +22,6 @@ namespace RefugeeCamp.Domain.Models
         public string password { get; set; }
         public string FullName { get { return firstName + " " + lastName; } }
 
+
     }
 }

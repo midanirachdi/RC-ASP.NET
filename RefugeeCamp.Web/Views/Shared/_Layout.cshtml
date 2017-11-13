@@ -1,9 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@using RefugeeCamp.Domain.Models
+@using RefugeeCamp.Web.Security
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>Refugees camp management website</title>
 
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -19,16 +21,29 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            @Html.ActionLink("Refugees camp", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
         </div>
+        @if(SessionPersister.User != null){ 
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                <li>@Html.ActionLink("About", "About", "Home")</li>
-                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+            @if (@SessionPersister.User.GetType() == typeof(Admin))
+            {
+                <li>@Html.ActionLink("Tasks", "Index", "Task")</li>
+
+            }
+            else
+            {
+                <li>@Html.ActionLink("Tasks", "IndexUser", "Task")</li>
+            }
+
             </ul>
-            </div>  
-            @Html.Partial("_LoginPartial")
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="@Url.Action("Logout","Account")"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+               
+            </ul>
+        </div>  
+        }
+        @Html.Partial("_LoginPartial")
         </div>
     </div>
 
