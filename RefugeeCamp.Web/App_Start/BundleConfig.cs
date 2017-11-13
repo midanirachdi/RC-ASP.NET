@@ -8,7 +8,11 @@ namespace RefugeeCamp.Web
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-
+            bundles.Add(new StyleBundle("~/Content/css").Include(
+                "~/Content/bootstrap.css",
+                "~/Content/bootstrap-datetimepicker.css",
+                "~/Content/site.css",
+                "~/Content/themes/base/jquery-ui.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/jquerySignalR").Include(
                 "~/Scripts/jquery.signalR-2.2.2.js",
@@ -40,11 +44,7 @@ namespace RefugeeCamp.Web
                       "~/Scripts/respond.js"));
 
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/bootstrap-datetimepicker.css",
-                      "~/Content/site.css",
-                      "~/Content/themes/base/jquery-ui.css"));
+         
 
         }
     }
