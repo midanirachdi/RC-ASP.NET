@@ -232,6 +232,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TaskController.cs" />
+    <Compile Include="Controllers\TopicController.cs" />
     <Compile Include="Controllers\WebServiceConsumeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -243,6 +244,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\AccountViewModel.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
+    <Compile Include="ViewModels\TopicListView.cs" />
     <Compile Include="ViewModels\UserTypeSelect.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -356,6 +358,8 @@
     <Content Include="Views\Account\Success.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\AccesDenied\Index.cshtml" />
+    <Content Include="Views\Topic\ListTopic.cshtml" />
+    <Content Include="Views\Topic\TopicItem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

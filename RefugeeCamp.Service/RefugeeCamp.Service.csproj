@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GestionTopic.cs" />
     <Compile Include="GestionUser.cs" />
     <Compile Include="GestionTask.cs" />
     <Compile Include="IGestionUser.cs" />

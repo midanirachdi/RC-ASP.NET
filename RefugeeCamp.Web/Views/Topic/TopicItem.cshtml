@@ -1,0 +1,30 @@
+﻿
+@model RefugeeCamp.Domain.Models.topic
+
+
+<div class="row">
+    <div class="col-xs-10">
+        <h3>@Model.title</h3>
+        <p>
+            @{
+                var m = Model.body.Length;
+                Write(Model.body.Substring(0, m / 2));
+            }
+            ...
+        </p>
+    </div>
+    <div class="col-xs-2">
+        <div class="row @(Model.closed ?"btn-success":"btn-danger")">
+            <h2 style="text-align: center;">@Model.comments.Count</h2>
+        </div>
+        <div class="row" style="margin-top: 15px;">
+            @Model.user.FullName
+            <br/>
+            @Model.datePublish
+
+        </div>
+    </div>
+
+</div>
+
+<hr/>
