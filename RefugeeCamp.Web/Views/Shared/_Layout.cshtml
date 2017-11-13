@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/bootstrap.css")
+    @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    @Styles.Render("~/Content/jqueryui")
+    
 
 </head>
 <body>
@@ -32,15 +32,36 @@
     </div>
     <div class="container body-content">
         @RenderBody()
+        
+        <div class="notificationBalloon" id="container" style="float:right">             </div>
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
-
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/jquerySignalR")
+<script src="/signalr/hubs"></script>    
     @Scripts.Render("~/bundles/bootstrap")
-@Scripts.Render("~/bundles/jqueryui")
+
+    <script type="text/javascript">
+        $(function() {
+            var proxy = $.connection.notificationHub;
+            proxy.client.receiveNotification = function(message) {
+                $.notify(
+                    message,
+                    {    
+                        autoHideDelay: 5000,
+                        position: "top right",
+                        className: "info"
+                    }
+                );
+            };
+            $.connection.hub.start();
+        });
+    </script>
+
 
     @RenderSection("scripts", required: false)
 </body>

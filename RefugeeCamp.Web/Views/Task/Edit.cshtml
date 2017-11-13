@@ -2,6 +2,19 @@
 
 @{
     ViewBag.Title = "Edit";
+    List<SelectListItem> listItems = new List<SelectListItem>();
+    listItems.Add(new SelectListItem
+    {
+        Text = "started",
+        Value = "started"
+    });
+    listItems.Add(new SelectListItem
+    {
+        Text = "closed",
+        Value = "closed"
+    });
+
+
 }
 
 <h2>Edit</h2>
@@ -16,23 +29,7 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.id)
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.description, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.description, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.endDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.endDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.endDate, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
+        
         <div class="form-group">
             @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -42,17 +39,48 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.startDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.description, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.startDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.startDate, "Start date : ", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="input-group date form_datetime col-md-5" data-date="" data-date-format="dd/MM/yyyy HH:mm:ss P" data-link-field="startDate">
+                    @Html.EditorFor(model => model.startDate, new { htmlAttributes = new { @class = "form-control" } })
+
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                </div>
+               
                 @Html.ValidationMessageFor(model => model.startDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+        
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.endDate, "End date : ", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="input-group date form_datetime1 col-md-5" data-date="" data-date-format="dd/MM/yyyy HH:mm:ss P" data-link-field="endDate">
+                    @Html.EditorFor(model => model.endDate, new { htmlAttributes = new { @class = "form-control" } })
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                </div>
+               
+
+                @Html.ValidationMessageFor(model => model.endDate, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.status, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.status, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.status,listItems, new { @class = "form-control"  })
                 @Html.ValidationMessageFor(model => model.status, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -60,7 +88,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.UserId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("user", (SelectList)ViewData["users"], new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model=>model.UserId, (SelectList)ViewData["users"], new { @class = "form-control"  })
                 @Html.ValidationMessageFor(model => model.UserId, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -77,6 +105,37 @@
     @Html.ActionLink("Back to List", "Index")
 </div>
 
-@section Scripts {
+@section scripts
+{
     @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+
+        $('.form_datetime').datetimepicker({
+            //language: 'fr',
+            weekStart: 1,
+            todayBtn: 1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 2,
+            forceParse: 1,
+            showMeridian: 1
+        });
+
+        $('.form_datetime1').datetimepicker({
+            //language: 'fr',
+            weekStart: 1,
+            todayBtn: 1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 2,
+            forceParse: 1,
+            showMeridian: 1
+        });
+            //.on('changeDate', function(ev) {
+            //   // $('#startDate').val(ev.date.val());
+            //    console.log(ev.date.valueOf());
+            //});
+
+
+    </script>
 }

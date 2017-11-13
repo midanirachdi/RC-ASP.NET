@@ -8,6 +8,11 @@ namespace RefugeeCamp.Web
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+
+            bundles.Add(new ScriptBundle("~/bundles/jquerySignalR").Include(
+                "~/Scripts/jquery.signalR-2.2.2.js",
+                "~/Scripts/notify.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
@@ -27,12 +32,16 @@ namespace RefugeeCamp.Web
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
+                "~/Scripts/bootstrap.js",
+                "~/Scripts/bootstrap-datetimepicker.js",
+                "~/Scripts/bootstrap-datetimepicker.fr.js",
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/bootstrap-datetimepicker.css",
+                      "~/Content/site.css",
+                      "~/Content/themes/base/jquery-ui.css"));
         }
     }
 }
