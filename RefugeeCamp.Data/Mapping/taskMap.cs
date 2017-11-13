@@ -31,9 +31,7 @@ namespace RefugeeCamp.Data.Mapping
             this.Property(t => t.UserId).HasColumnName("UserId");
 
             // Relationships
-            this.HasOptional(t => t.user)
-                .WithMany(t => t.tasks)
-                .HasForeignKey(d => d.UserId);
+            this.HasOptional(t => t.user);
 
         }
     }

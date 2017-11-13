@@ -67,6 +67,7 @@
     <Compile Include="Mapping\campMap.cs" />
     <Compile Include="Mapping\commandeMap.cs" />
     <Compile Include="Mapping\commentMap.cs" />
+    <Compile Include="Mapping\DistrictChefMap.cs" />
     <Compile Include="Mapping\donationMap.cs" />
     <Compile Include="Mapping\evenementMap.cs" />
     <Compile Include="Mapping\jobofferMap.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="Mapping\taskMap.cs" />
     <Compile Include="Mapping\topicMap.cs" />
     <Compile Include="Mapping\userMap.cs" />
+    <Compile Include="Mapping\VolunteerMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="refugeescampContext.cs" />
   </ItemGroup>

@@ -9,9 +9,11 @@ namespace RefugeeCamp.Web
         public static void RegisterBundles(BundleCollection bundles)
         {
 
+
             bundles.Add(new ScriptBundle("~/bundles/jquerySignalR").Include(
                 "~/Scripts/jquery.signalR-2.2.2.js",
                 "~/Scripts/notify.js"));
+
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
@@ -37,11 +39,13 @@ namespace RefugeeCamp.Web
                 "~/Scripts/bootstrap-datetimepicker.fr.js",
                       "~/Scripts/respond.js"));
 
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/bootstrap-datetimepicker.css",
                       "~/Content/site.css",
                       "~/Content/themes/base/jquery-ui.css"));
+
         }
     }
 }

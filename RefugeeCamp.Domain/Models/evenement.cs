@@ -9,7 +9,7 @@ namespace RefugeeCamp.Domain.Models
         {
             this.ratings = new List<rating>();
             this.refugees = new List<refugee>();
-            this.users = new List<user>();
+            this.Volunteers = new List<Volunteer>();
         }
 
         public int id { get; set; }
@@ -22,6 +22,6 @@ namespace RefugeeCamp.Domain.Models
         public virtual user user { get; set; }
         public virtual ICollection<rating> ratings { get; set; }
         public virtual ICollection<refugee> refugees { get; set; }
-        public virtual ICollection<user> users { get; set; }
+        public virtual ICollection<Volunteer> Volunteers { get; set; }
     }
 }

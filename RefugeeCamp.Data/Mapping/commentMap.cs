@@ -26,9 +26,7 @@ namespace RefugeeCamp.Data.Mapping
             this.HasOptional(t => t.topic)
                 .WithMany(t => t.comments)
                 .HasForeignKey(d => d.Topic_ID);
-            this.HasOptional(t => t.user)
-                .WithMany(t => t.comments)
-                .HasForeignKey(d => d.User_ID);
+            this.HasOptional(t => t.user);
 
         }
     }

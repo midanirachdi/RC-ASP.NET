@@ -29,9 +29,7 @@ namespace RefugeeCamp.Data.Mapping
             this.HasRequired(t => t.evenement)
                 .WithMany(t => t.ratings)
                 .HasForeignKey(d => d.idEvent);
-            this.HasRequired(t => t.user)
-                .WithMany(t => t.ratings)
-                .HasForeignKey(d => d.idVolunteer);
+            this.HasRequired(t => t.Volunteer);
 
         }
     }

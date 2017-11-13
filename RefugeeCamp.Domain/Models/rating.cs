@@ -10,6 +10,6 @@ namespace RefugeeCamp.Domain.Models
         public Nullable<System.DateTime> dateOfRating { get; set; }
         public int mark { get; set; }
         public virtual evenement evenement { get; set; }
-        public virtual user user { get; set; }
+        public virtual Volunteer Volunteer { get; set; }
     }
 }

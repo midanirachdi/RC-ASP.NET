@@ -20,6 +20,6 @@ namespace RefugeeCamp.Domain.Models
         public Nullable<int> AdminId { get; set; }
         public virtual ICollection<commande> commandes { get; set; }
         public virtual ICollection<stocknotification> stocknotifications { get; set; }
-        public virtual user user { get; set; }
+        public virtual Admin Admin { get; set; }
     }
 }
