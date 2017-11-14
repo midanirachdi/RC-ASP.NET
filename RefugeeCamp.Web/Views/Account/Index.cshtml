@@ -51,7 +51,7 @@
         <div class="login-box card">
             <div class="card-body">
 @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { id = "login-form" , @class = "form-horizontal form-material" })) { 
-                    <a href="javascript:void(0)" class="text-center db"><img width="150" src="~/Content/template/assets/images/logo-icon-blue.png" alt="Home" /></a>  
+                   <img style="display: block;margin: 0 auto;" width="150" src="~/Content/template/assets/images/logo-icon-blue.png" alt="Home" />
                     <h3 class="box-title m-b-20">Sign In</h3>
                     <div class="form-group ">
                         <div class="col-xs-12">
@@ -70,8 +70,8 @@
                                 <input id="checkbox-signup" type="checkbox">
                                 <label for="checkbox-signup"> Remember me </label>
                             </div> 
-                            <a href="javascript:void(0)" id="login_lost_btn" class="text-dark pull-right">
-                                <i class="fa fa-lock m-r-5"></i> Forgot pwd?
+                            <a href="javascript:void(0)" id="to-recover" class="text-dark pull-right">
+                                <i class="fa fa-lock m-r-5"></i> Forgot password?
                             </a> 
                             @*<button id="login_lost_btn" type="button" class="btn btn-link">Lost Password?</button>*@
 
