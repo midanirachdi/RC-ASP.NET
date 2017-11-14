@@ -11,5 +11,6 @@ namespace RefugeeCamp.Service
     interface IGestionMedicalFolder: IService<medicalfolder>
     {
         medicalfolder findFolderById(int id);
+        
     }
 }

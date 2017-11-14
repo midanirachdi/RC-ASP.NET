@@ -8,12 +8,18 @@ namespace RefugeeCamp.Domain.Models
         public user()
         {
             this.camps = new List<camp>();
+            this.commandes = new List<commande>();
             this.comments = new List<comment>();
+            this.evenements = new List<evenement>();
             this.joboffers = new List<joboffer>();
             this.joboffers1 = new List<joboffer>();
             this.needs = new List<need>();
+            this.news = new List<news>();
+            this.ratings = new List<rating>();
+            this.stocks = new List<stock>();
             this.tasks = new List<task>();
             this.topics = new List<topic>();
+            this.evenements1 = new List<evenement>();
         }
 
         public string role { get; set; }
@@ -29,12 +35,17 @@ namespace RefugeeCamp.Domain.Models
         public Nullable<int> camp_ID { get; set; }
         public virtual ICollection<camp> camps { get; set; }
         public virtual camp camp { get; set; }
+        public virtual ICollection<commande> commandes { get; set; }
         public virtual ICollection<comment> comments { get; set; }
+        public virtual ICollection<evenement> evenements { get; set; }
         public virtual ICollection<joboffer> joboffers { get; set; }
         public virtual ICollection<joboffer> joboffers1 { get; set; }
         public virtual ICollection<need> needs { get; set; }
+        public virtual ICollection<news> news { get; set; }
+        public virtual ICollection<rating> ratings { get; set; }
+        public virtual ICollection<stock> stocks { get; set; }
         public virtual ICollection<task> tasks { get; set; }
         public virtual ICollection<topic> topics { get; set; }
-        public string FullName { get { return firstName + " " + lastName; } }
+        public virtual ICollection<evenement> evenements1 { get; set; }
     }
 }

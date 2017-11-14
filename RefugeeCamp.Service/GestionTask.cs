@@ -15,34 +15,10 @@ namespace RefugeeCamp.Service
         public GestionTask() : base(utw)
         {
         }
-
-        //public IEnumerable<user> ListerTaskByUsername()
-        //{
-        //    //utw.GetRepository<task>().
-        //    //    FindByCondition(x => x.UserId. == name).Where(x => x.DateProd.Year == 2008);
-
-
-        //    //var tasklist = utw.GetRepository<task>().FindByCondition();
-        //    //var userlist = utw.GetRepository<user>().FindByCondition();
-
-        //    //var TaskByUser = from task in tasklist
-        //    //                 from user in userlist
-        //    //                 where task.UserId == user.id
-        //    //                 select user;
-
-        //    //return TaskByUser;
-
-
-
-
-
-        //    //return TaskByUser;
-
-        //    //var res = from Table in ctx.Tables
-        //    //from Reservation in ctx.Reservations
-        //    //where Table.Id == Reservation.IdTable 
-        //    //select Table;
-        //}
-
+        
+        public int GetTaskNbr()
+        {
+           return utw.GetRepository<task>().FindByCondition().Count();
+        }
     }
 }

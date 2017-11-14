@@ -23,6 +23,13 @@ namespace RefugeeCamp.Data.Mapping
             this.Property(t => t.author).HasColumnName("author");
             this.Property(t => t.content).HasColumnName("content");
             this.Property(t => t.dateOfCreation).HasColumnName("dateOfCreation");
+            this.Property(t => t.AdminId).HasColumnName("AdminId");
+
+            // Relationships
+            this.HasOptional(t => t.user)
+                .WithMany(t => t.news)
+                .HasForeignKey(d => d.AdminId);
+
         }
     }
 }

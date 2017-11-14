@@ -48,6 +48,15 @@ namespace RefugeeCamp.Data.Mapping
             this.Property(t => t.camp_ID).HasColumnName("camp_ID");
 
             // Relationships
+            this.HasMany(t => t.evenements1)
+                .WithMany(t => t.users)
+                .Map(m =>
+                    {
+                        m.ToTable("volunter_event", "refugeescamp");
+                        m.MapLeftKey("volunteer_id");
+                        m.MapRightKey("event_id");
+                    });
+
             this.HasOptional(t => t.camp)
                 .WithMany(t => t.users)
                 .HasForeignKey(d => d.camp_ID);

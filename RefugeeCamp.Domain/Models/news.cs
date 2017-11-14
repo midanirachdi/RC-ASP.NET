@@ -14,6 +14,8 @@ namespace RefugeeCamp.Domain.Models
         public string author { get; set; }
         public string content { get; set; }
         public Nullable<System.DateTime> dateOfCreation { get; set; }
+        public Nullable<int> AdminId { get; set; }
         public virtual ICollection<medium> media { get; set; }
+        public virtual user user { get; set; }
     }
 }

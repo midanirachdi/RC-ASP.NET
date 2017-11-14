@@ -1,6 +1,7 @@
 ﻿using RefugeeCamp.Domain.Models;
 using Service.Pattern;
 using RefugeeCamp.Data.Infrastructures;
+using System;
 
 namespace RefugeeCamp.Service
 {
@@ -12,11 +13,11 @@ namespace RefugeeCamp.Service
         public GestionMedicalFolder() : base(utw)
         {
         }
+
         public medicalfolder findFolderById(int id)
         {
             medicalfolder f = utw.GetRepository<medicalfolder>().FindById(id);
             return f; 
-
         }
     }
 }

@@ -57,7 +57,7 @@ namespace RefugeeCamp.Data.Mapping
             this.Property(t => t.phoneNumber).HasColumnName("phoneNumber");
             this.Property(t => t.sex).HasColumnName("sex");
             this.Property(t => t.yearsOfExperience).HasColumnName("yearsOfExperience");
-            this.Property(t => t.fiche_id).HasColumnName("fiche_id");
+            this.Property(t => t.fiche_ID).HasColumnName("fiche_ID");
             this.Property(t => t.camp_ID).HasColumnName("camp_ID");
 
             // Relationships
@@ -66,7 +66,7 @@ namespace RefugeeCamp.Data.Mapping
                 .HasForeignKey(d => d.camp_ID);
             this.HasOptional(t => t.medicalfolder)
                 .WithMany(t => t.refugees)
-                .HasForeignKey(d => d.fiche_id);
+                .HasForeignKey(d => d.fiche_ID);
 
         }
     }
