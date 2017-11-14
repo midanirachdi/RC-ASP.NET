@@ -217,6 +217,7 @@
     <Compile Include="Controllers\AccesDeniedController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MedicalFolderController.cs" />
     <Compile Include="Controllers\TaskController.cs" />
     <Compile Include="Controllers\TopicController.cs" />
     <Compile Include="Controllers\WebServiceConsumeController.cs" />
@@ -315,7 +316,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -339,6 +342,10 @@
     <Content Include="Views\Task\IndexUser.cshtml" />
     <Content Include="Views\Task\EditUser.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
+    <Content Include="Views\MedicalFolder\Index.cshtml" />
+    <Content Include="Views\MedicalFolder\Details.cshtml" />
+    <Content Include="Views\MedicalFolder\Create.cshtml" />
+    <Content Include="Views\MedicalFolder\Update.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Account\Success.cshtml" />
