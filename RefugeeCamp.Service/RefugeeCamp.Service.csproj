@@ -44,8 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FilterConfig.cs" />
+    <Compile Include="GestionCommande.cs" />
     <Compile Include="GestionMedicalFolder.cs" />
+    <Compile Include="GestionProvider.cs" />
     <Compile Include="GestionRefugees.cs" />
+    <Compile Include="GestionStock.cs" />
     <Compile Include="GestionTopic.cs" />
     <Compile Include="GestionUser.cs" />
     <Compile Include="GestionTask.cs" />
