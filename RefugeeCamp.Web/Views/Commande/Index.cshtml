@@ -1,0 +1,41 @@
+﻿@model IEnumerable<RefugeeCamp.Domain.Models.stock>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<table class="table">
+    <tr>
+
+        <th>@Html.DisplayNameFor(model => model.stockType)</th>
+        <th>@Html.DisplayNameFor(model => model.qteInStock)</th>
+        <th>@Html.DisplayNameFor(model => model.qteTotal)</th>
+        <th>@Html.DisplayNameFor(model => model.stockValue)</th>
+        <th>@Html.DisplayNameFor(model => model.notes)</th>
+        <th>Order Stock</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>@Html.DisplayFor(modelItem => item.stockType)</td>
+            <td>@Html.DisplayFor(modelItem => item.qteInStock)</td>
+            <td>@Html.DisplayFor(modelItem => item.qteTotal)</td>
+            <td>@Html.DisplayFor(modelItem => item.stockValue)</td>
+            <td>@Html.DisplayFor(modelItem => item.notes)</td>
+            
+               
+            <td>
+                <input type="button" value="Order Stock" class="btn btn-primary"  onclick="location.href='@Url.Action("Create", "Commande",new { id = item.StockId })'" />
+            </td>
+        </tr>
+    }
+
+</table>
