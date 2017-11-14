@@ -11,9 +11,7 @@ namespace RefugeeCamp.Data.Mapping
             this.HasKey(t => t.id);
 
             // Properties
-            this.Property(t => t.role)
-                .IsRequired()
-                .HasMaxLength(31);
+      
 
             this.Property(t => t.adress)
                 .HasMaxLength(255);
@@ -35,7 +33,6 @@ namespace RefugeeCamp.Data.Mapping
 
             // Table & Column Mappings
             this.ToTable("user", "refugeescamp");
-            this.Property(t => t.role).HasColumnName("role");
             this.Property(t => t.id).HasColumnName("id");
             this.Property(t => t.adress).HasColumnName("adress");
             this.Property(t => t.birthDay).HasColumnName("birthDay");
@@ -45,21 +42,15 @@ namespace RefugeeCamp.Data.Mapping
             this.Property(t => t.lastName).HasColumnName("lastName");
             this.Property(t => t.lastResetQuery).HasColumnName("lastResetQuery");
             this.Property(t => t.password).HasColumnName("password");
-            this.Property(t => t.camp_ID).HasColumnName("camp_ID");
-
+            this.Map<Admin>(m => m.Requires("role").HasValue("Admin"));
+            this.Map<DistrictChef>(m => m.Requires("role").HasValue("DistrictChef"));
+            this.Map<CampChef>(m => m.Requires("role").HasValue("CampChef"));
+            this.Map<Volunteer>(m => m.Requires("role").HasValue("Volunteer"));
             // Relationships
-            this.HasMany(t => t.evenements1)
-                .WithMany(t => t.users)
-                .Map(m =>
-                    {
-                        m.ToTable("volunter_event", "refugeescamp");
-                        m.MapLeftKey("volunteer_id");
-                        m.MapRightKey("event_id");
-                    });
 
-            this.HasOptional(t => t.camp)
-                .WithMany(t => t.users)
-                .HasForeignKey(d => d.camp_ID);
+          
+
+
 
         }
     }

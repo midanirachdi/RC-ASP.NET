@@ -1,0 +1,16 @@
+﻿@model RefugeeCamp.Web.ViewModels.TopicListView
+
+
+<div class="container">
+    <div class="form-group">
+        <label for="inputdefault">Default input</label>
+        <input class="form-control" id="inputdefault" type="text" style="margin-right: 0;">
+    </div>
+</div>
+
+<div class="container" style="margin-top: 80px;">
+  @foreach (var item in Model.ListTopic)
+  {
+      @Html.Action("TopicItem", "Topic", item);
+  }
+</div>

@@ -12,6 +12,6 @@ namespace RefugeeCamp.Domain.Models
         public int status { get; set; }
         public string type { get; set; }
         public Nullable<int> iddcchef { get; set; }
-        public virtual user user { get; set; }
+        public virtual CampChef CampChef { get; set; }
     }
 }

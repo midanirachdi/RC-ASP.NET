@@ -36,9 +36,7 @@ namespace RefugeeCamp.Data.Mapping
                         m.MapRightKey("Tag_id");
                     });
 
-            this.HasOptional(t => t.user)
-                .WithMany(t => t.topics)
-                .HasForeignKey(d => d.User_ID);
+            this.HasOptional(t => t.user);
 
         }
     }

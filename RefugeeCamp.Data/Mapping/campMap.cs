@@ -28,9 +28,7 @@ namespace RefugeeCamp.Data.Mapping
             this.Property(t => t.campChef_ID).HasColumnName("campChef_ID");
 
             // Relationships
-            this.HasOptional(t => t.user)
-                .WithMany(t => t.camps)
-                .HasForeignKey(d => d.campChef_ID);
+            this.HasOptional(t => t.CampChef);
 
         }
     }

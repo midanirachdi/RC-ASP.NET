@@ -1,0 +1,83 @@
+﻿@model RefugeeCamp.Domain.Models.task
+
+@{
+    ViewBag.Title = "EditUser";
+
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>task</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.id)
+        
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.progress, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-5" style="display: flex;align-items: center">
+              <div class="col-xs-2" style="padding: 0">
+                @Html.EditorFor(model => model.progress, new {htmlAttributes = new {@class = "form-control"}})
+              </div>
+                <div class="col-xs-5">   
+             <div id="progressb"></div></div>
+
+            </div>
+        </div>
+        
+        
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "IndexUser")
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        $("#progressb").css('background', 'linear-gradient(90deg, #0d98d8 		                                                   ' + $("#progress").val() + '%, #cccccc 0%)');
+        $("#progressb").slider({
+            value: $("#progress").val(),
+            min: 0,
+            max: 100,
+            slide:function(event, ui) {
+                $("#progress")
+                    .text(ui.value)
+                    .val(ui.value);
+                $("#progressb").css('background', 'linear-gradient(90deg, #0d98d8 		                                                   ' + ui.value + '%, #cccccc 0%)');
+            }
+        });
+
+     
+     
+//       $("#progressb .ui-widget-header").css('background', 'none');
+    </script>
+}

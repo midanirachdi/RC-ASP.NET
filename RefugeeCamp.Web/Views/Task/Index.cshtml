@@ -1,4 +1,5 @@
-﻿@model IEnumerable<RefugeeCamp.Domain.Models.task>
+﻿@using RefugeeCamp.Web.Security
+@model IEnumerable<RefugeeCamp.Domain.Models.task>
 
 @{
     ViewBag.Title = "Index";
@@ -9,36 +10,40 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
 @using (Html.BeginForm("search"))
-{
-    <table>
-        <tr>
-            <td>
-                search task by name : @Html.TextBox("SearchString")
-            </td>
-            <td>
-                <input type="submit" value="Rechercher"/>
-            </td>
-        </tr>
-    </table>
-}
-<br/>
+    {
+        <table>
+            <tr>
+                <td>
+                    search task by name : @Html.TextBox("SearchString")
+                </td>
+                <td>
+                    <input type="submit" value="Search" />
+                </td>
+            </tr>
+        </table>
+    }
+    <br />
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.endDate)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.startDate)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.endDate)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.progress)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.UserId)
@@ -46,32 +51,51 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.endDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.startDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.user.firstName) @Html.DisplayFor(modelItem => item.user.lastName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.startDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.endDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.status)
+            </td>
+
+            <td>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped" 
+                         role="progressbar" aria-valuenow="60" aria-valuemin="0" 
+                         aria-valuemax="100" style="width: 0%; " id="pbarM">
+                        @Html.DisplayFor(modelItem => item.progress)% 
+                    </div>
+                </div>
+                    
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.user.FullName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
 
 </table>
+    @section scripts{
+        <script type="text/javascript">
+            $("#pbarM").css("width", $("#pbarM").text());
+         
+        </script>
+    }
+  

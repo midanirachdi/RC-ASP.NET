@@ -19,6 +19,7 @@ namespace RefugeeCamp.Data
         public DbSet<camp> camps { get; set; }
         public DbSet<commande> commandes { get; set; }
         public DbSet<comment> comments { get; set; }
+        public DbSet<course> courses { get; set; }
         public DbSet<donation> donations { get; set; }
         public DbSet<evenement> evenements { get; set; }
         public DbSet<joboffer> joboffers { get; set; }
@@ -59,6 +60,8 @@ namespace RefugeeCamp.Data
             modelBuilder.Configurations.Add(new taskMap());
             modelBuilder.Configurations.Add(new topicMap());
             modelBuilder.Configurations.Add(new userMap());
+            modelBuilder.Configurations.Add(new DistrictChefMap());
+            modelBuilder.Configurations.Add(new VolunteerMap());
         }
     }
 }
