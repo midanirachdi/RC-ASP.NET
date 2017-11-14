@@ -9,12 +9,12 @@
 @using (Html.BeginForm("search"))
 {
     <table>
-        <tr>
+        <tr style="display: flex;align-items: flex-end;">
             <td>
-                search task by name : @Html.TextBox("SearchString")
+                 @Html.TextBox("SearchString", null,new { @class = "form-control" , placeholder = "Search tasks by name"})
             </td>
             <td>
-                <input type="submit" value="Search" />
+                <input type="submit" value="Search" class="btn btn-primary" />
             </td>
         </tr>
     </table>

@@ -8,6 +8,7 @@
 /// <reference path="jquery.validate.unobtrusive.js" />
 /// <reference path="jquery-1.12.4.min.js" />
 /// <reference path="jquery-ui-1.12.1.js" />
+/// <reference path="js.cookie.min.js" />
 /// <reference path="modernizr-2.6.2.js" />
 /// <reference path="notify.js" />
 /// <reference path="npm.js" />

@@ -20,7 +20,7 @@
 <h2>Edit</h2>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "EditTaskForm" }))
 {
     @Html.AntiForgeryToken()
     
@@ -55,7 +55,7 @@
                     <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
                     <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
                 </div>
-               
+
                 @Html.ValidationMessageFor(model => model.startDate, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -71,7 +71,7 @@
                     <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
                     <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
                 </div>
-               
+
 
                 @Html.ValidationMessageFor(model => model.endDate, "", new { @class = "text-danger" })
             </div>
@@ -95,7 +95,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </div>
     </div>
@@ -130,11 +130,35 @@
             startView: 2,
             forceParse: 1,
             showMeridian: 1
+        })
+
+            
+        $(function () {
+            //first letter miniscule
+            var proxy = $.connection.notificationHub;
+            proxy.client.receiveNotification = function (message) {
+                $.notify(
+                    message,
+                    {
+                        autoHideDelay: 5000,
+                        position: "top right",
+                        className: "info"
+                    }
+                );
+            };
+            $("#EditTaskForm").submit(function (event) {
+                var form = this;
+
+                proxy.server.sendNotifications("La tache " + $("#name").val() + "a été modifiée avec succès");
+                event.preventDefault();
+
+                setTimeout(function () {
+                    form.submit();
+                }, 1800);
+            });
+            $.connection.hub.start();
+
         });
-            //.on('changeDate', function(ev) {
-            //   // $('#startDate').val(ev.date.val());
-            //    console.log(ev.date.valueOf());
-            //});
 
 
     </script>

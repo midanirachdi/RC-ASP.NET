@@ -16,7 +16,8 @@ namespace RefugeeCamp.Web
 
             bundles.Add(new ScriptBundle("~/bundles/jquerySignalR").Include(
                 "~/Scripts/jquery.signalR-2.2.2.js",
-                "~/Scripts/notify.js"));
+                "~/Scripts/notify.js",
+                "~/Scripts/js.cookie.min.js"));
 
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(

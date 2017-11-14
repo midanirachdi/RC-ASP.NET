@@ -211,23 +211,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminForm.aspx.cs">
-      <DependentUpon>AdminForm.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AdminForm.aspx.designer.cs">
-      <DependentUpon>AdminForm.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="ClientForm.aspx.cs">
-      <DependentUpon>ClientForm.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ClientForm.aspx.designer.cs">
-      <DependentUpon>ClientForm.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\AccesDeniedController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -242,14 +228,13 @@
     <Compile Include="Security\SessionPersister.cs" />
     <Compile Include="SignalR\NotificationHub.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AccountViewModel.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Compile Include="ViewModels\TopicListView.cs" />
     <Compile Include="ViewModels\UserTypeSelect.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AdminForm.aspx" />
-    <Content Include="ClientForm.aspx" />
     <Content Include="Content\bootstrap-datetimepicker.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -323,6 +308,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\js.cookie.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\notify.js" />
     <Content Include="Scripts\npm.js" />
