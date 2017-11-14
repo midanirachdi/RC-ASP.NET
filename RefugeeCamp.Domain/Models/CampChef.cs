@@ -11,8 +11,11 @@ namespace RefugeeCamp.Domain.Models
         public CampChef()
         {
             this.joboffers = new List<joboffer>();
+            this.evenements = new List<evenement>();
         }
 
         public virtual ICollection<joboffer> joboffers { get; set; }
+        public virtual ICollection<evenement> evenements { get; set; }
+
     }
 }

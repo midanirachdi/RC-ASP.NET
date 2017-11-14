@@ -44,11 +44,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GestionEvenement.cs" />
     <Compile Include="GestionMedicalFolder.cs" />
     <Compile Include="GestionRefugees.cs" />
     <Compile Include="GestionTopic.cs" />
     <Compile Include="GestionUser.cs" />
     <Compile Include="GestionTask.cs" />
+    <Compile Include="IGestionEvenement.cs" />
     <Compile Include="IGestionMedicalFolder.cs" />
     <Compile Include="IGestionRefugees.cs" />
     <Compile Include="IGestionUser.cs" />
