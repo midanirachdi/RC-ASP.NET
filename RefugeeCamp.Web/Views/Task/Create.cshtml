@@ -7,7 +7,7 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "AddTaskForm" }))
 {
     @Html.AntiForgeryToken()
 
@@ -75,8 +75,7 @@
         </div>
     </div>
 
-    <input id="text1" type="text" />
-    <input id="button1" type="button" value="Send" />
+
 }
 
 <div>
@@ -99,10 +98,19 @@
         $(function () {
             //first letter miniscule
             var proxy = $.connection.notificationHub;
-            $("#button1").click(function () {
-                proxy.server.sendNotifications("modified value !");
+            $("#AddTaskForm").submit(function (event) {
+                var form = this;
+
+                proxy.server.sendNotifications("La tache " + $("#name").val() + " a été ajoutée avec succès");
+                
+                event.preventDefault();
+
+                setTimeout(function () {
+                    form.submit();
+                }, 1800);
             });
             $.connection.hub.start();
+            
         });
     </script>
 }

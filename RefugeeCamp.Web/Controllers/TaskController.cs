@@ -24,7 +24,7 @@ namespace RefugeeCamp.Web.Controllers
         // GET: Task
         public ActionResult Index()
         {
-            ViewBag.usr =  SessionPersister.User.GetType();
+            //ViewBag.usr =  SessionPersister.User.GetType();
             return View(gt.QueryObjectGraph("User"));
         }
         public ActionResult IndexUser()
@@ -35,7 +35,8 @@ namespace RefugeeCamp.Web.Controllers
         [HttpPost]
         public ActionResult IndexUser(string searchString)
         {
-            var res = gt.QueryObjectGraph("User", t => t.name.Contains(searchString));
+            String currentUsermail = SessionPersister.User.email;
+            var res = gt.QueryObjectGraph("User", t => t.name.Contains(searchString) && t.user.email == currentUsermail);
             return View(res);
         }
 
@@ -96,25 +97,24 @@ namespace RefugeeCamp.Web.Controllers
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
-            task t = null;
-
-            t = gt.FindById(id);
+            task t = gt.FindById(id);
             t.name = collection["name"];
             t.description = collection["description"];
 
-            if (collection["startDate"] != null)
-                t.startDate = DateTime.ParseExact(
-                    collection["startDate"],
-                    "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
+            if(Request.Form["startDate"] != null)
+            t.startDate = DateTime.Parse(Request.Form["startDate"]);
 
-            if (collection["endDate"] != null)
-                t.endDate = DateTime.ParseExact(
-                collection["endDate"],
-                "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
-            t.status = collection["status"];
+            if (Request.Form["endDate"] != null)
+                t.endDate = DateTime.Parse(Request.Form["endDate"]);
 
 
-            if (collection["user"] != null)
+            //t.endDate = DateTime.ParseExact(
+            //    collection["endDate"],
+            //    "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
+            //t.status = collection["status"];
+
+
+            
                 t.UserId = Int32.Parse(collection["UserId"]);
 
             gt.Update(t);
