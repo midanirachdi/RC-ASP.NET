@@ -44,7 +44,16 @@ namespace RefugeeCamp.Web
                       "~/Scripts/respond.js"));
 
 
-         
+            bundles.Add(new StyleBundle("~/Content/khrcss").Include(
+                "~/Content/summernote.css",
+                "~/Content/tagsly.css"));
+
+            bundles.Add(new ScriptBundle("~/Scripts/khrscripts").Include(
+                "~/Scripts/summernote.js",
+                "~/Scripts/tagsly.js"));
+
+
+
 
         }
     }

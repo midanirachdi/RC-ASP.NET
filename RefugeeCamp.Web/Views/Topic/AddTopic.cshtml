@@ -1,0 +1,58 @@
+﻿@model RefugeeCamp.Web.ViewModels.AddTopicModelView
+
+<div class="container">
+    @using (@Html.BeginForm("AddTopic", "Topic")) { 
+      
+    @Html.TextBoxFor(t => t.topic.title)
+    @Html.HiddenFor(t=>t.topic.body,new {@id="khr-body"})
+    @Html.TextBoxFor(t=>t.tagString,new {@id="khr-tag"})
+
+
+        
+    <button type="submit" value="Submit">Save</button>
+
+    }
+    
+    <div class="row">
+        
+        <button id="edit" class="btn btn-primary" onclick="edit()" type="button">Edit 1</button>
+        <button id="save" class="btn btn-primary" onclick="save()" type="button">Save 2</button>
+        <div class="summernote"><h1>Add new Topic</h1></div>
+    </div>   
+    
+</div>
+@section Scripts {
+    <script>
+   
+            /**
+            * declarations
+            */
+
+            var $bodyInput = $("#khr-body");
+            var $editBtn = $("#edit");
+            var $saveBtn = $("#save");
+
+            (function() { $('.summernote').summernote(); }
+             )();
+
+            
+            var edit = function() {
+                $('.summernote').summernote();
+            };
+
+            var save = function() {
+                var markup = $('.summernote').summernote('code');
+                $bodyInput.val(markup);
+                $('.summernote').summernote('destroy');
+            
+            };
+  
+            
+            
+
+
+    
+
+
+    </script>
+    }
