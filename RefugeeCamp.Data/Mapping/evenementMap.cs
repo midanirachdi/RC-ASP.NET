@@ -31,6 +31,10 @@ namespace RefugeeCamp.Data.Mapping
             this.Property(t => t.creator_id).HasColumnName("creator_id");
 
             // Relationships
+            this.HasOptional(t => t.Campchef)
+                .WithMany(t => t.evenements)
+                .HasForeignKey(d => d.creator_id);
+
             this.HasMany(t => t.refugees)
                 .WithMany(t => t.evenements)
                 .Map(m =>

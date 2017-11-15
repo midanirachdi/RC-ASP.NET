@@ -5,7 +5,6 @@ using System.Web;
 using System.Web.Mvc;
 using RefugeeCamp.Domain.Models;
 using RefugeeCamp.Service;
-using System.Net;
 
 namespace RefugeeCamp.Web.Controllers
 {
@@ -58,6 +57,7 @@ namespace RefugeeCamp.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id)
         {
+
             medicalfolder f = gm.FindById(id);
             refugee refu = gr.FindByCondition(r => r.medicalfolder.id == id).Single();
             refu.medicalfolder = null;
@@ -79,13 +79,34 @@ namespace RefugeeCamp.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Update(medicalfolder f)
+        public ActionResult Update(int  id, FormCollection collection)
         {
-                medicalfolder m = gm.findFolderById(f.id);
+            if (ModelState.IsValid)
+            {
+                medicalfolder m = gm.findFolderById(id);
+                m.apparences = collection["apparences"];
+                m.bloodpressure = float.Parse(collection["bloodpressure"]);
+                m.bloodtype = collection["bloodtype"];
+                m.description = collection["description"];
+                m.doctorname = collection["doctorname"];
+                m.height = float.Parse(collection["height"]);
+                m.mentalstate = collection["mentalstate"];
+                m.weight = float.Parse(collection["weight"]);
                 gm.Update(m);
                 gm.Commit();
                 return RedirectToAction("Index");
+            }
+            else
+                return View();
          
         }
+
+        public ActionResult DownloadPdf(int id)
+        {
+            return new Rotativa.ActionAsPdf("Details/" + id) {
+                FileName = Server.MapPath("~/content/medicalFolder.pdf")
+            };
+        }
+
     }
 }
