@@ -103,8 +103,10 @@ namespace RefugeeCamp.Web.Controllers
 
         public ActionResult DownloadPdf(int id)
         {
-            return new Rotativa.ActionAsPdf("Details/" + id) {
-                FileName = Server.MapPath("~/content/medicalFolder.pdf")
+            return new Rotativa.ViewAsPdf("Details", gm.findFolderById(id))
+            {
+                FileName = "MyDoc.pdf",
+                PageSize = Rotativa.Options.Size.A4          
             };
         }
 
