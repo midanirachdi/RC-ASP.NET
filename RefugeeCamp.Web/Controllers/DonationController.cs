@@ -14,16 +14,16 @@ namespace RefugeeCamp.Web.Controllers
 {
     public class DonationController : Controller
     {
-        private GestionDonation gd = null;
-
+        private GestionCamp gc = null;
         public DonationController()
         {
-            gd = new GestionDonation();
+            gc = new GestionCamp();
         }
         // GET: Donation/Create
         public ActionResult Create()
         {
-
+            var list = gc.FindByCondition();
+            ViewBag.camps = new SelectList(list, "id", "name");
             return View();
         }
 
@@ -32,8 +32,8 @@ namespace RefugeeCamp.Web.Controllers
         public async Task<ActionResult> Create(FormCollection collection)
         {
             var client = new HttpClient();
-            var url = "http://localhost:18080/refugeesCamp-web/api/donations/add";
-            var parameters = new Dictionary<string, string> { { "amount", collection["amount"]}, { "currency",collection["currency"] } };
+            var url = "http://localhost:18080/refugeesCamp-web/api/donations/addtocamp";
+            var parameters = new Dictionary<string, string> { { "amount", collection["amount"]}, { "currency",collection["currency"] } , { "camp_id", collection["CAMP_ID"] } };
             var encodedContent = new FormUrlEncodedContent(parameters);
 
             var response = await client.PostAsync(url, encodedContent);
