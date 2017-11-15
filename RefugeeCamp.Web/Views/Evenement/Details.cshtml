@@ -1,0 +1,66 @@
+﻿@model RefugeeCamp.Domain.Models.evenement
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>evenement</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.dateEvent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateEvent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.imagename)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imagename)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nbplace)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nbplace)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.creator_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.creator_id)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

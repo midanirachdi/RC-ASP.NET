@@ -1,1 +1,27 @@
-﻿
+﻿@using RefugeeCamp.Web.Security
+@model RefugeeCamp.Web.ViewModels.TopicShowViewModel
+    
+<div class="card">
+    <div class="card-body">
+        <h1>
+            @Model.topic.title
+        </h1> 
+        
+        
+        <p>
+            @Model.topic.body
+        </p>
+         
+    </div>
+    @if(Model.topic.User_ID==SessionPersister.User.id)
+    {    <div class="card-actions">
+            @Html.ActionLink(@Model.topic.closed?"Open topic":"Close topic","UpdateTopic",new{id=Model.topic.id})
+         </div> }
+
+</div>
+
+
+    @foreach (var item in Model.topic.comments)
+    {
+        Html.RenderAction("CommentItem","Comment",new {comment=item});
+    }

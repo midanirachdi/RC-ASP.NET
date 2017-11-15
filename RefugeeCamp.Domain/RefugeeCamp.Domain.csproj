@@ -92,6 +92,7 @@
     <Compile Include="Models\CampChef.cs" />
     <Compile Include="Models\commande.cs" />
     <Compile Include="Models\comment.cs" />
+    <Compile Include="Models\course.cs" />
     <Compile Include="Models\DistrictChef.cs" />
     <Compile Include="Models\donation.cs" />
     <Compile Include="Models\evenement.cs" />
@@ -114,7 +115,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

@@ -1,20 +1,23 @@
 ﻿@using RefugeeCamp.Web.Security
 @model RefugeeCamp.Domain.Models.comment
 
-<div class="container">
-    <div class="row">
+<div class="card">
+    <div class="card-body">
         <div class="col-md-6 col-md-offset-3">
-            <div class="wysiwig-edi-comment-@Model.id">@{
-                                                           HtmlString h = new HtmlString(@Model.body);
-                                                           Write(h);
-                                                       }
+            <div class="wysiwig-edi-comment-@Model.id">
+                @{
+                    HtmlString h = new HtmlString(@Model.body);
+                    Write(h);
+                }
 
             </div>
         </div>
-   
-        <div class="col-md-2 col-md-offset-10">@Model.user.FullName</div>
 
+        <div class="col-md-2 col-md-offset-10">@Model.user.FullName</div>
     </div>
+   
+
 </div>
+
 
 <hr/>

@@ -20,6 +20,7 @@ namespace RefugeeCamp.Domain.Models
         public bool closed { get; set; }
         public Nullable<System.DateTime> datePublish { get; set; }
         public string title { get; set; }
+        [ForeignKey("user")]
         public Nullable<int> User_ID { get; set; }
         public virtual ICollection<comment> comments { get; set; }
         public virtual user user { get; set; }

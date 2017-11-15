@@ -9,14 +9,15 @@ namespace RefugeeCamp.Web
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                "~/Content/bootstrap.css",
+                //"~/Content/bootstrap.css",
                 "~/Content/bootstrap-datetimepicker.css",
                 "~/Content/site.css",
                 "~/Content/themes/base/jquery-ui.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/jquerySignalR").Include(
                 "~/Scripts/jquery.signalR-2.2.2.js",
-                "~/Scripts/notify.js"));
+                "~/Scripts/notify.js",
+                "~/Scripts/js.cookie.min.js"));
 
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
@@ -38,7 +39,7 @@ namespace RefugeeCamp.Web
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                "~/Scripts/bootstrap.js",
+                //"~/Scripts/bootstrap.js",
                 "~/Scripts/bootstrap-datetimepicker.js",
                 "~/Scripts/bootstrap-datetimepicker.fr.js",
                       "~/Scripts/respond.js"));

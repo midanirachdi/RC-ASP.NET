@@ -11,7 +11,9 @@ namespace RefugeeCamp.Domain.Models
         public DistrictChef():base()
         {
             this.joboffers = new List<joboffer>();
+           
             this.needs = new List<need>();
+            this.courses = new List<course>();
         }
 
 
@@ -21,5 +23,6 @@ namespace RefugeeCamp.Domain.Models
         public virtual ICollection<joboffer> joboffers { get; set; }
 
         public virtual ICollection<need> needs { get; set; }
+        public virtual ICollection<course> courses { get; set; }
     }
 }

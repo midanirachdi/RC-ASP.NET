@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using RefugeeCamp.Domain.Models;
 using RefugeeCamp.Service;
+using RefugeeCamp.Web.Security;
 using RefugeeCamp.Web.ViewModels;
 
 namespace RefugeeCamp.Web.Controllers
@@ -41,14 +42,28 @@ namespace RefugeeCamp.Web.Controllers
         }
 
 
+        public ActionResult UpdateTopic(int id)
+        {
+            topic t = gt.FindById(id);
+            t.closed = !t.closed;
+            gt.Update(t);
+            gt.Commit();
+            return RedirectToAction("ShowTopic", "Topic",new{id= t.id});
+        }
+
+
         public ActionResult AddTopic()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult AddTopic(topic t)
+        [ValidateInput(false)]
+        public ActionResult AddTopic(AddTopicModelView t)
         {
+            t.topic.User_ID = SessionPersister.User.id;
+            gt.Create(t.topic);
+            gt.Commit();
             return View();
         }
     }

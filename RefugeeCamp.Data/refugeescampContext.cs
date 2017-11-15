@@ -19,6 +19,7 @@ namespace RefugeeCamp.Data
         public DbSet<camp> camps { get; set; }
         public DbSet<commande> commandes { get; set; }
         public DbSet<comment> comments { get; set; }
+        public DbSet<course> courses { get; set; }
         public DbSet<donation> donations { get; set; }
         public DbSet<evenement> evenements { get; set; }
         public DbSet<joboffer> joboffers { get; set; }

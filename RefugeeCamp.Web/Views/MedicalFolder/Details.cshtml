@@ -1,0 +1,84 @@
+﻿@model RefugeeCamp.Domain.Models.medicalfolder
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>medicalfolder</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.apparences)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apparences)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bloodpressure)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bloodpressure)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bloodtype)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bloodtype)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.doctorname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.doctorname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.height)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.height)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mentalstate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mentalstate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.weight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.weight)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit medical folder", "Update", new { id = Model.id }) |
+    @Html.ActionLink("Delete", "Delete", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index") |
+    @Html.ActionLink("Print PDF", "DownloadPdf", new { id = Model.id })
+</p>

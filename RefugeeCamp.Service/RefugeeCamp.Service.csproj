@@ -46,9 +46,15 @@
   <ItemGroup>
     <Compile Include="GestionComment.cs" />
     <Compile Include="GestionTag.cs" />
+    <Compile Include="GestionEvenement.cs" />
+    <Compile Include="GestionMedicalFolder.cs" />
+    <Compile Include="GestionRefugees.cs" />
     <Compile Include="GestionTopic.cs" />
     <Compile Include="GestionUser.cs" />
     <Compile Include="GestionTask.cs" />
+    <Compile Include="IGestionEvenement.cs" />
+    <Compile Include="IGestionMedicalFolder.cs" />
+    <Compile Include="IGestionRefugees.cs" />
     <Compile Include="IGestionUser.cs" />
     <Compile Include="IGestionTask.cs" />
     <Compile Include="JsonWrapper\IUserRoot.cs" />
