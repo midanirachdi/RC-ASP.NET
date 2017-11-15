@@ -1,5 +1,6 @@
 ﻿using RefugeeCamp.Domain.Models;
 using RefugeeCamp.Service;
+using RefugeeCamp.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,15 +24,8 @@ namespace RefugeeCamp.Web.Controllers
         }
 
         public ActionResult Create()
-        {/*
-            IQueryable<provider> provList = gProvider.QueryObjectGraph("provider");
-            List<SelectListItem> provNames = new List<SelectListItem>();
-            foreach (var e in provList)
-            {
-                provNames.add(new SelectListItem { Text = e.nom, Value = e.nom });
-            }
-            var tuple = new Tuple<List<string>, commande>(provNames, new commande());
-            return View(tuple);*/
+        {
+           
             return null;
         }
 
@@ -48,6 +42,20 @@ namespace RefugeeCamp.Web.Controllers
             else return View(prov);
         }
 
+        public List<ListProvider> getAllProviders()
+        {
+            
 
+            IQueryable<provider> provList = gProvider.QueryObjectGraph("provider");
+
+            var list = provList.Select(s => new { s.id, s.nom }).ToList();
+            List<ListProvider> provNames = new List<ListProvider>();
+            foreach (var e in list)
+            {
+                provNames.Add(new ListProvider { Id = e.id,Nom=e.nom });
+            }
+
+            return provNames;
+        }
     }
 }

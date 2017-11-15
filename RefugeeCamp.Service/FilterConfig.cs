@@ -1,4 +1,4 @@
-﻿using System.Web;
+﻿/*using System.Web;
 using System.Web.Mvc;
 
 namespace RefugeeCamp.Web
@@ -10,4 +10,4 @@ namespace RefugeeCamp.Web
             filters.Add(new HandleErrorAttribute());
         }
     }
-}
+}*/
