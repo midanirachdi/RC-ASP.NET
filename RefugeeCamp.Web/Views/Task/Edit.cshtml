@@ -52,8 +52,8 @@
                 <div class="input-group date form_datetime col-md-5" data-date="" data-date-format="dd/MM/yyyy HH:mm:ss P" data-link-field="startDate">
                     @Html.EditorFor(model => model.startDate, new { htmlAttributes = new { @class = "form-control" } })
 
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"><i class="ti-close"></i></span></span>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-th"><i class="ti-calendar"></i></span></span>
                 </div>
 
                 @Html.ValidationMessageFor(model => model.startDate, "", new { @class = "text-danger" })
@@ -68,8 +68,8 @@
             <div class="col-md-10">
                 <div class="input-group date form_datetime1 col-md-5" data-date="" data-date-format="dd/MM/yyyy HH:mm:ss P" data-link-field="endDate">
                     @Html.EditorFor(model => model.endDate, new { htmlAttributes = new { @class = "form-control" } })
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"><i class="ti-close"></i></span></span>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-th"><i class="ti-calendar"></i></span></span>
                 </div>
 
 
@@ -149,7 +149,7 @@
             $("#EditTaskForm").submit(function (event) {
                 var form = this;
 
-                proxy.server.sendNotifications("La tache " + $("#name").val() + "a été modifiée avec succès");
+                proxy.server.sendNotifications("La tache " + $("#name").val() + " a été modifiée avec succès");
                 event.preventDefault();
 
                 setTimeout(function () {

@@ -237,6 +237,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccesDeniedController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DonationController.cs" />
     <Compile Include="Controllers\EvenementController.cs" />
     <Compile Include="Controllers\CommandeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -1922,6 +1923,11 @@
     <Content Include="Views\Providers\Index.cshtml" />
     <Content Include="Views\Providers\Create.cshtml" />
     <Content Include="Views\Evenement\Index.cshtml" />
+    <Content Include="Views\Evenement\Details.cshtml" />
+    <Content Include="Views\Evenement\Edit.cshtml" />
+    <Content Include="Views\Evenement\Delete.cshtml" />
+    <Content Include="Views\Evenement\Create.cshtml" />
+    <Content Include="Views\Donation\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
