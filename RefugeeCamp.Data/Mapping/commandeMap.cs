@@ -40,6 +40,8 @@ namespace RefugeeCamp.Data.Mapping
                 .WithMany(t => t.commandes)
                 .HasForeignKey(d => d.Stock);
             this.HasOptional(t => t.Admin1);
+            /*this.HasOptional(t => t.Admin)
+                .HasForeignKey(d => d.Admin1);*/
             this.HasOptional(t => t.product1)
                 .WithMany(t => t.commandes)
                 .HasForeignKey(d => d.Product);

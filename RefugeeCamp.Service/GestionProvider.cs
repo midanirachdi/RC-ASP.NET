@@ -22,5 +22,18 @@ namespace RefugeeCamp.Service
         {
             return null;
         }
+
+        public provider findProviderById(int id)
+        {
+            provider prov = utw.GetRepository<provider>().FindById(id);
+            return prov;
+        }
+        public IEnumerable<provider> findAllProviders()
+        {
+            IEnumerable<provider> lp = utw.GetRepository<provider>().MyContext.providers;
+
+            //IQueryable<provider> provList = utw.GetRepository<provider>().QueryObjectGraph("provider");
+            return lp;
+        }
     }
 }
