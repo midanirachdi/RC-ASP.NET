@@ -1,0 +1,86 @@
+﻿@model IEnumerable<RefugeeCamp.Web.ViewModels.OrdersViewModel>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "Providers List";
+}
+<br />
+<h2>Orders List</h2>
+<hr />
+<table class="table table-striped" style="background-color:white;">
+    <tr>
+        <th>Ordered By</th>
+        <th>Provider</th>
+        <th>Stock Type</th>
+        
+       
+        
+        <th>Status</th>
+        
+        <th>Change to Recived</th>
+        <th>Edit</th>
+        <th>Details</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.AdminName)</td>
+            <td>@Html.DisplayFor(modelItem => item.ProviderName)</td>
+            <td>@Html.DisplayFor(modelItem => item.StockType)</td>
+            
+            
+            
+            
+            @if (item.Cmd.status == 0)
+            {
+                <td class="text-warning">Pending</td>
+                <td>
+                    <div style="padding-left:25%">
+                        <input type="submit" value="✔"  class="btn btn-success" onclick="location.href='@Url.Action("ChangeStatusToShipped", "Commande",new { id = item.Cmd.id   })'" />
+                    </div>
+                </td>
+                <td><div>
+                         <button type="button" class="btn btn-warning" onclick="location.href='@Url.Action("Update", "Commande",new { id = item.Cmd.id   })'">
+                               <span class="fa fa-pencil"></span>
+                          </button>
+                    </div>
+                </td>
+            }
+            else
+            {
+                <td class="text-primary">Shipped</td>
+                <td>
+                    <div style="padding-left:25%">
+                        <button type="button" class="btn btn-success" disabled>
+                            <span class="fa fa-ban"></span>
+                        </button>
+                    </div>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-warning" disabled>
+                        <span class="fa fa-ban"></span>
+                    </button>
+                </td>
+            }
+            
+            
+           
+            <td>
+                <button type="button" class="btn btn-info" onclick="location.href='@Url.Action("Details", "Commande",new { id = item.Cmd.id   })'">
+                    <span class="fa fa-info-circle"></span>
+                </button>
+            </td>
+
+            
+        </tr>
+        
+    }
+
+</table>
+<hr />
+<div>
+    @Html.ActionLink("Back to Stock List", "Index", "Commande")
+</div>

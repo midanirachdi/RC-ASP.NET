@@ -4,20 +4,22 @@
 }
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "List of available stock";
 }
-
-<h2>Index</h2>
-
-
+<br />
+<h2>List of available stock </h2>
+<hr />
+<input type="button" value="Manage Providers" class="btn btn-info" onclick="location.href='@Url.Action("Index", "Providers")'" />
+<input type="button" value="List Orders" class="btn btn-info" onclick="location.href='@Url.Action("List", "Commande")'"/>
+<hr />
 <table class="table">
     <tr>
 
-        <th>@Html.DisplayNameFor(model => model.stockType)</th>
-        <th>@Html.DisplayNameFor(model => model.qteInStock)</th>
-        <th>@Html.DisplayNameFor(model => model.qteTotal)</th>
-        <th>@Html.DisplayNameFor(model => model.stockValue)</th>
-        <th>@Html.DisplayNameFor(model => model.notes)</th>
+        <th>Type of Stock</th>
+        <th>Quantity in Stock</th>
+        <th>Total Quantity</th>
+        <th>Stock Value</th>
+        <th>Notes</th>
         <th>Order Stock</th>
     </tr>
 
