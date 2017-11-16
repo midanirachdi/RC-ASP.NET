@@ -152,6 +152,7 @@
 /// <reference path="bootstrap.min.js" />
 /// <reference path="bootstrap-datetimepicker.fr.js" />
 /// <reference path="bootstrap-datetimepicker.js" />
+/// <reference path="exportpdf.js" />
 /// <reference path="jquery.signalr-2.2.2.min.js" />
 /// <reference path="jquery.validate.js" />
 /// <reference path="jquery.validate.unobtrusive.js" />

@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GestionCamp.cs" />
     <Compile Include="GestionCommande.cs" />
     <Compile Include="GestionDonation.cs" />
     <Compile Include="GestionEvenement.cs" />
@@ -55,6 +56,7 @@
     <Compile Include="GestionTopic.cs" />
     <Compile Include="GestionUser.cs" />
     <Compile Include="GestionTask.cs" />
+    <Compile Include="IGestionCamp.cs" />
     <Compile Include="IGestionDonation.cs" />
     <Compile Include="IGestionEvenement.cs" />
     <Compile Include="IGestionMedicalFolder.cs" />

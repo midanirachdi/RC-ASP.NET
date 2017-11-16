@@ -1862,6 +1862,7 @@
     <Content Include="Content\template\assets\scss\icons\weather-icons\sass\weather-icons.min.scss" />
     <Content Include="Content\template\assets\scss\icons\weather-icons\sass\weather-icons.scss" />
     <None Include="Scripts\jquery-1.12.4.intellisense.js" />
+    <Content Include="Scripts\ExportPDF.js" />
     <Content Include="Scripts\jquery-1.12.4.js" />
     <Content Include="Scripts\jquery-1.12.4.min.js" />
     <Content Include="Scripts\jquery-1.12.4.min.map" />

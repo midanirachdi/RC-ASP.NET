@@ -2,6 +2,22 @@
 
 @{
     ViewBag.Title = "Index";
+    List<SelectListItem> listItems = new List<SelectListItem>();
+    listItems.Add(new SelectListItem
+    {
+        Text = "Today",
+        Value = "today"
+    });
+    listItems.Add(new SelectListItem
+    {
+        Text = "Happened",
+        Value = "happened"
+    });
+    listItems.Add(new SelectListItem
+    {
+        Text = "Coming",
+        Value = "to_come"
+    });
 }
 
 <h2>Index</h2>
@@ -9,6 +25,19 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+@using (Html.BeginForm("filter"))
+{
+    <table>
+        <tr>
+            <td>
+                search event by State : @Html.DropDownList("state", listItems)
+            </td>
+            <td>
+                <input type="submit" value="Search" class="btn btn-primary" />
+            </td>
+        </tr>
+    </table>
+}
 <table class="table">
     <tr>
         <th>
