@@ -262,6 +262,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AccountViewModel.cs" />
     <Compile Include="ViewModels\CommandeViewModel.cs" />
+    <Compile Include="ViewModels\OrdersViewModel.cs" />
     <Compile Include="ViewModels\ProviderViewModel.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Compile Include="ViewModels\TopicListView.cs" />
@@ -1928,6 +1929,10 @@
     <Content Include="Views\Evenement\Delete.cshtml" />
     <Content Include="Views\Evenement\Create.cshtml" />
     <Content Include="Views\Donation\Create.cshtml" />
+    <Content Include="Views\Providers\Update.cshtml" />
+    <Content Include="Views\Commande\List.cshtml" />
+    <Content Include="Views\Commande\Details.cshtml" />
+    <Content Include="Views\Commande\Update.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
