@@ -294,20 +294,35 @@
                         <li class="nav-small-cap">Admin</li>
                         <li>
                             <a class="has-arrow waves-effect waves-dark" href="forum.php" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Forum</span></a>
+
                         </li>
                         <li>
                             <a class="has-arrow waves-effect waves-dark" href="commandes.php" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Events</span></a>
+
                         </li>
                         <li>
                             <a class="has-arrow waves-effect waves-dark" href="commandes.php" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Providers</span></a>
+
                         </li>
                         <li>
-                            <a class="has-arrow waves-effect waves-dark" href="listrefugees.php" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Medical Folder</span></a>
+                            <a class="has-arrow waves-effect waves-dark" href="@Url.Action("Index","MedicalFolder")" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Refugees medical Folders</span></a>
+
                         </li>
                         <li>
                             <a class="has-arrow waves-effect waves-dark" href="commandes.php" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Courses</span></a>
+
                         </li>
-                        }
+                        
+                            <li>
+                                <a class="has-arrow waves-effect waves-dark" href="@Url.Action("Index","Task")" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">To Do List</span></a>
+
+                            </li>
+                      
+                            <li>
+                                <a class="has-arrow waves-effect waves-dark" href="@Url.Action("IndexUser","Task")" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">To Do List</span></a>
+
+                            </li>
+                        
 
 
                     </ul>
@@ -316,6 +331,7 @@
             </div>
             <!-- End Sidebar scroll-->
         </aside>
+
         @*<div class="navbar navbar-inverse navbar-fixed-top">
                 <div class="container">
                     <div class="navbar-header">
