@@ -21,5 +21,6 @@ namespace RefugeeCamp.Domain.Models
         public virtual ICollection<commande> commandes { get; set; }
         public virtual ICollection<stocknotification> stocknotifications { get; set; }
         public virtual Admin Admin { get; set; }
+
     }
 }

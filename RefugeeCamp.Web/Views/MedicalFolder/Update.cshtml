@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Update Medical folder";
+
 }
 
 <h2>Update</h2>
@@ -36,7 +37,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.bloodtype, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.bloodtype, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.bloodtype, new SelectList(new[] { "O+", "O-", "A-", "A+", "B-", "B+", "AB-", "AB+" }), new { @class = "control-label" })
                 @Html.ValidationMessageFor(model => model.bloodtype, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -52,7 +53,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.doctorname, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.doctorname, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.doctorname, new SelectList(new[] { "Dr. Ahmed Ben Saad", "Dr. Chahine Badr", "Dr. Ben Elghali Beyram", "Dr Kadhem Kilani", "Dr. Majdi Ajroud", "Dr. Hamdi Jouini", "Dr. Blanken Michael", "Dr. Isabel Brini" }), new { @class = "control-label" })
                 @Html.ValidationMessageFor(model => model.doctorname, "", new { @class = "text-danger" })
             </div>
         </div>

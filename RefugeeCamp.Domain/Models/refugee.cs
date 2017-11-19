@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace RefugeeCamp.Domain.Models
 {
@@ -12,6 +13,7 @@ namespace RefugeeCamp.Domain.Models
 
         public int id { get; set; }
         public string adress { get; set; }
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public Nullable<System.DateTime> dateOfBirth { get; set; }
         public string email { get; set; }
         public string englishlanguageLevel { get; set; }
