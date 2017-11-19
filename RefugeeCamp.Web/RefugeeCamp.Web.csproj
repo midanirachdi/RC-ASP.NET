@@ -244,6 +244,7 @@
     <Compile Include="Controllers\TaskController.cs" />
     <Compile Include="Controllers\TopicController.cs" />
     <Compile Include="Controllers\WebServiceConsumeController.cs" />
+    <Compile Include="CustomUserIdProvider.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

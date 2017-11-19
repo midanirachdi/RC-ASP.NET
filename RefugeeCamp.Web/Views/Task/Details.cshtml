@@ -1,67 +1,180 @@
-﻿@model RefugeeCamp.Domain.Models.task
+﻿@using RefugeeCamp.Domain.Models
+@using RefugeeCamp.Web.Security
+@model RefugeeCamp.Domain.Models.task
 
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h3 class="text-themecolor">Task Details</h3>
+    </div>
+    <div class="col-md-7 align-self-center">
 
-<div>
-    <h4>task</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.name)
-        </dt>
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.name)
-        </dd>
-         <dt>
-            @Html.DisplayNameFor(model => model.description)
-        </dt>
+</div>
 
-        <dd>
-            @Html.DisplayFor(model => model.description)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.startDate)
-        </dt>
+<div class="container-fluid">
+    <div class="col-12">
 
-        <dd>
-            @Html.DisplayFor(model => model.startDate)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.endDate)
-        </dt>
+        <div class="card">
+            <div class="card-body">
+                <dl class="row">
 
-        <dd>
-            @Html.DisplayFor(model => model.endDate)
-        </dd>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.name)
+                                </dt>
+                            </div>
+                            <div class="col-md-4">
+                                <dd>
+                                    @Html.DisplayFor(model => model.name)
+                                </dd>
+                            </div>
+                        </div>
+                    </div>
 
-       
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.description)
+                                </dt>
+                            </div>
+                            <div class="col-md-4">
+                                <dd>
+                                    @Html.DisplayFor(model => model.description)
+                                </dd>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.startDate)
+                                </dt>
+                            </div>
+                            <div class="col-md-4">
+                                <dd>
+                                    @Html.DisplayFor(model => model.startDate)
+                                </dd>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.endDate)
+                                </dt>
+                            </div>
+                            <div class="col-md-4">
+                                <dd>
+                                    @Html.DisplayFor(model => model.endDate)
+                                </dd>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.status)
+                                </dt>
+                            </div>
+                            <div class="col-md-4">
+                                <dd>
+                                    @Html.DisplayFor(model => model.status)
+                                </dd>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.progress)
+                                </dt>
+                            </div>
+                            <div class="col-md-4">
+                                <dd>
+                                    <div class="progress progress-xs margin-vertical-10">
+                                        <div class="progress-bar bg-info wow animated progress-animated" 
+                                             role="progressbar" aria-valuenow="60" aria-valuemin="0" 
+                                             aria-valuemax="100"  id="progB">
+                                            @Html.DisplayFor(model => model.progress)% 
+                                        </div>
+                                    </div>
+                                </dd>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.UserId)
+                                </dt>
+                            </div>
+                            <div class="col-md-4">
+                                <dd>
+                                    @Html.DisplayFor(model => model.user.FullName)
+                                </dd>
+                            </div>
+                        </div>
+                    </div>
+
+                </dl>
+
+                <div class="row col-md-10">
+                    @if (@SessionPersister.User.GetType() == typeof(Admin))
+                    {
+                        <div class="col-xs-6">
+                            @Html.ActionLink("Edit", "Edit", new { id = Model.id }, new { @class = "btn btn-info btn-rounded btn-outline-info" })
+                        </div>
+                        <div style="margin: 5px; margin-left: 85px">
+                            @Html.ActionLink("Back to List", "Index")
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="col-xs-6">
+                            @Html.ActionLink("Edit", "EditUser", new { id = Model.id }, new { @class = "btn btn-info btn-rounded btn-outline-info" })
+                        </div>
+                        <div style="margin: 5px; margin-left: 85px">
+                            @Html.ActionLink("Back to List", "IndexUser")
+                        </div>
+
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script type="text/javascript">
+
 
         
-
-        <dt>
-            @Html.DisplayNameFor(model => model.status)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.status)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UserId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.user.FullName)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+        $("#progB").css("width", $("#progB").text().replace(/\s/g, ''));
+       
+        
+        $('#progB').css('animation-duration', '1s').removeClass('progress-bar');
+        setTimeout(function () {
+            $('#progB').addClass('progress-bar');
+        }, 1);
+    </script>
+}

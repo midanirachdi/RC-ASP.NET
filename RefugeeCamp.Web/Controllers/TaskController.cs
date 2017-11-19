@@ -56,6 +56,9 @@ namespace RefugeeCamp.Web.Controllers
         // GET: Task/Create
         public ActionResult Create()
         {
+            HttpCookie cookie = Request.Cookies["ASP.NET_SessionId"];
+            ViewBag.Mycookie = cookie.Value;
+
 
             var list = gu.FindByCondition();
             ViewBag.users = new SelectList(list, "id", "FullName");
@@ -84,6 +87,8 @@ namespace RefugeeCamp.Web.Controllers
         // GET: Task/Edit/5
         public ActionResult Edit(int id)
         {
+            HttpCookie cookie = Request.Cookies["ASP.NET_SessionId"];
+            ViewBag.Mycookie = cookie.Value;
             task t = gt.FindById(id);
 
             var list = gu.FindByCondition();
@@ -111,7 +116,7 @@ namespace RefugeeCamp.Web.Controllers
             //t.endDate = DateTime.ParseExact(
             //    collection["endDate"],
             //    "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
-            //t.status = collection["status"];
+            t.status = collection["status"];
 
 
             
@@ -125,6 +130,8 @@ namespace RefugeeCamp.Web.Controllers
         // GET: Task/Edit/5
         public ActionResult EditUser(int id)
         {
+            HttpCookie cookie = Request.Cookies["ASP.NET_SessionId"];
+            ViewBag.Mycookie = cookie.Value;
             task t = gt.FindById(id);
 
            
@@ -152,6 +159,8 @@ namespace RefugeeCamp.Web.Controllers
         // GET: Task/Delete/5
         public ActionResult Delete(int id)
         {
+            HttpCookie cookie = Request.Cookies["ASP.NET_SessionId"];
+            ViewBag.Mycookie = cookie.Value;
             return View(gt.FindById(id));
         }
 

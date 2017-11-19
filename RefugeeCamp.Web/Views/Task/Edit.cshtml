@@ -17,93 +17,129 @@
 
 }
 
-<h2>Edit</h2>
+<div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h3 class="text-themecolor">Task Editing</h3>
+    </div>
+    <div class="col-md-7 align-self-center">
 
+    </div>
 
-@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "EditTaskForm" }))
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>task</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.id)
+</div>
+
+<div class="container-fluid">
+    <div class="col-12">
         
-        <div class="form-group">
-            @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        <div class="card">
+            <div class="card-body">
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.description, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.description, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        
-        <div class="form-group">
-            @Html.LabelFor(model => model.startDate, "Start date : ", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="input-group date form_datetime col-md-5" data-date="" data-date-format="dd/MM/yyyy HH:mm:ss P" data-link-field="startDate">
-                    @Html.EditorFor(model => model.startDate, new { htmlAttributes = new { @class = "form-control" } })
+                @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "EditTaskForm", @class = "floating-labels m-t-40" }))
+                {
+                    @Html.AntiForgeryToken()
 
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"><i class="ti-close"></i></span></span>
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-th"><i class="ti-calendar"></i></span></span>
-                </div>
+                   
+                       
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.id)
 
-                @Html.ValidationMessageFor(model => model.startDate, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        
-        
+                    <div class="form-group  col-md-4">
+
+                        @Html.TextAreaFor(model => model.name, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                         
+                        <span class="bar"></span>
+                        @Html.LabelFor(model => model.name, "Name", htmlAttributes: new { @class = "control-label " })
+                    </div>
+                    <div class="form-group col-md-4">
+                            
+                        @Html.TextAreaFor(model => model.description, new { @class = "form-control " })
+                        @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+                                
+                        <span class="bar"></span>
+                        @Html.LabelFor(model => model.description, "Description", htmlAttributes: new { @class = "control-label " })
+
+                    </div>
+                    
+                    <div class="form-group col-md-4">
+                        
+                            @Html.DropDownListFor(model => model.status, listItems, new { @class = "select2 form-control custom-select select2-hidden-accessible" })
+                            @Html.ValidationMessageFor(model => model.status, "", new { @class = "text-danger" })
+                        
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        @Html.DropDownListFor(model => model.UserId, (SelectList)ViewData["users"], new { @class = "select2 form-control custom-select select2-hidden-accessible" })
+                        @Html.ValidationMessageFor(model => model.UserId, "", new { @class = "text-danger" })
+                            
+                      
+
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.startDate, "Start date : ", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <div class="input-group date form_datetime col-md-5" data-date="" data-date-format="dd/MM/yyyy HH:mm:ss P" data-link-field="startDate">
+                                @Html.EditorFor(model => model.startDate, new { htmlAttributes = new { @class = "form-control" } })
+
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-remove"><i class="ti-close"></i></span></span>
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-th"><i class="ti-calendar"></i></span></span>
+                            </div>
+
+                            @Html.ValidationMessageFor(model => model.startDate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.endDate, "End date : ", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="input-group date form_datetime1 col-md-5" data-date="" data-date-format="dd/MM/yyyy HH:mm:ss P" data-link-field="endDate">
-                    @Html.EditorFor(model => model.endDate, new { htmlAttributes = new { @class = "form-control" } })
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"><i class="ti-close"></i></span></span>
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-th"><i class="ti-calendar"></i></span></span>
-                </div>
 
 
-                @Html.ValidationMessageFor(model => model.endDate, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.status, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.status,listItems, new { @class = "form-control"  })
-                @Html.ValidationMessageFor(model => model.status, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.UserId, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model=>model.UserId, (SelectList)ViewData["users"], new { @class = "form-control"  })
-                @Html.ValidationMessageFor(model => model.UserId, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.endDate, "End date : ", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                <div class="input-group date form_datetime1 col-md-5" data-date="" data-date-format="dd/MM/yyyy HH:mm:ss P" data-link-field="endDate">
+                                    @Html.EditorFor(model => model.endDate, new { htmlAttributes = new { @class = "form-control" } })
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"><i class="ti-close"></i></span></span>
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-th"><i class="ti-calendar"></i></span></span>
+                                </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-primary" />
+
+                                @Html.ValidationMessageFor(model => model.endDate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+                    
+
+                    <div class="form-group">
+                        <div class="d-flex flex-row justify-content-between">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <button type="submit" value="Save" class="btn btn-outline-info btn-rounded">
+
+                                        Save
+                                    </button>
+                                        
+                                    <div style="margin: 5px;margin-left: 85px">
+                                        @Html.ActionLink("Back to List", "Index")
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                }
+
+               
             </div>
         </div>
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>
+@{
+
+    <div hidden id="uidM">@ViewBag.Mycookie</div>
+
+}
 
 @section scripts
 {
@@ -136,20 +172,10 @@
         $(function () {
             //first letter miniscule
             var proxy = $.connection.notificationHub;
-            proxy.client.receiveNotification = function (message) {
-                $.notify(
-                    message,
-                    {
-                        autoHideDelay: 5000,
-                        position: "top right",
-                        className: "info"
-                    }
-                );
-            };
             $("#EditTaskForm").submit(function (event) {
                 var form = this;
 
-                proxy.server.sendNotifications("La tache " + $("#name").val() + " a été modifiée avec succès");
+                proxy.server.sendNotifications($("#uidM").text(), "La tache " + $("#name").val() + " a été modifiée avec succès");
                 event.preventDefault();
 
                 setTimeout(function () {
