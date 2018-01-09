@@ -3,84 +3,185 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 @{
     ViewBag.Title = "Providers List";
+    List<SelectListItem> listItems = new List<SelectListItem>();
+    listItems.Add(new SelectListItem
+    {
+        Text = "All Orders",
+        Value = "-1"
+    });
+    listItems.Add(new SelectListItem
+    {
+        Text = "Pending",
+        Value = "0"
+    });
+    listItems.Add(new SelectListItem
+    {
+        Text = "Recived",
+        Value = "1"
+    });
+    int recived = RefugeeCamp.Web.ViewModels.OrdersViewModel.recived;
+    int pending = RefugeeCamp.Web.ViewModels.OrdersViewModel.pending;
 }
+
 <br />
 <h2>Orders List</h2>
 <hr />
-<table class="table table-striped" style="background-color:white;">
-    <tr>
-        <th>Ordered By</th>
-        <th>Provider</th>
-        <th>Stock Type</th>
-        
-       
-        
-        <th>Status</th>
-        
-        <th>Change to Recived</th>
-        <th>Edit</th>
-        <th>Details</th>
-    </tr>
-
-    @foreach (var item in Model)
+<div style="display:flex;justify-content:space-between;">
+    <div>
+    @using (Html.BeginForm("filter"))
     {
-        <tr>
-            <td>@Html.DisplayFor(modelItem => item.AdminName)</td>
-            <td>@Html.DisplayFor(modelItem => item.ProviderName)</td>
-            <td>@Html.DisplayFor(modelItem => item.StockType)</td>
-            
-            
-            
-            
-            @if (item.Cmd.status == 0)
-            {
-                <td class="text-warning">Pending</td>
+        <table>
+            <tr>Search Orders State</tr>
+            <tr>
                 <td>
-                    <div style="padding-left:25%">
-                        <input type="submit" value="✔"  class="btn btn-success" onclick="location.href='@Url.Action("ChangeStatusToShipped", "Commande",new { id = item.Cmd.id   })'" />
-                    </div>
+                    @Html.DropDownList("status", listItems, new { @class = "select2 form-control custom-select select2-hidden-accessible" })
                 </td>
-                <td><div>
-                         <button type="button" class="btn btn-warning" onclick="location.href='@Url.Action("Update", "Commande",new { id = item.Cmd.id   })'">
-                               <span class="fa fa-pencil"></span>
-                          </button>
-                    </div>
-                </td>
-            }
-            else
-            {
-                <td class="text-primary">Shipped</td>
                 <td>
-                    <div style="padding-left:25%">
-                        <button type="button" class="btn btn-success" disabled>
-                            <span class="fa fa-ban"></span>
+                    <div>
+                        <button type="submit" class="btn btn-success btn-micro" style="margin-left:20px;">
+                            <span class="fa fa-search"></span>
                         </button>
                     </div>
                 </td>
-                <td>
-                    <button type="button" class="btn btn-warning" disabled>
-                        <span class="fa fa-ban"></span>
-                    </button>
-                </td>
-            }
-            
-            
-           
-            <td>
-                <button type="button" class="btn btn-info" onclick="location.href='@Url.Action("Details", "Commande",new { id = item.Cmd.id   })'">
-                    <span class="fa fa-info-circle"></span>
-                </button>
-            </td>
-
-            
-        </tr>
-        
-    }
-
-</table>
-<hr />
-<div>
-    @Html.ActionLink("Back to Stock List", "Index", "Commande")
+            </tr>
+        </table>
+    }</div>
+    <div style="margin-top: auto;" >
+        <button class="btn btn-danger btn-micro" style="margin-left:20px;" onclick="location.href='@Url.Action("Excel", "Commande")'">
+            <span class="fa fa-file-excel-o"></span> Export to Excel
+        </button>
+    </div>
 </div>
+<hr />
+<div style="display:flex;justify-content:space-between;">
+    <div style="width:830px;" >
+        @using (Html.BeginForm("Excel", "Commande", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <table class="table table-striped" style="background-color:white;">
+                <tr>
+                    <th>Ordered By</th>
+                    <th>Provider</th>
+                    <th>Stock Type</th>
+                    <th>Status</th>
+                    <th>Change to Recived</th>
+                    <th>Edit</th>
+                    <th>Details</th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.AdminName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.ProviderName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.StockType)</td>
+
+
+
+
+                        @if (item.Cmd.status == 0)
+                    {
+                            <td class="text-warning">Pending</td>
+                            <td>
+                                <div style="padding-left:25%">
+                                    <input type="button" value="✔" class="btn btn-success" onclick="location.href='@Url.Action("ChangeStatusToShipped", "Commande", new { id = item.Cmd.id })'" />
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <button type="button" class="btn btn-warning" onclick="location.href='@Url.Action("Update", "Commande", new { id = item.Cmd.id })'">
+                                        <span class="fa fa-pencil"></span>
+                                    </button>
+                                </div>
+                            </td>
+                        }
+                        else
+                        {
+                            <td class="text-primary">Shipped</td>
+                            <td>
+                                <div style="padding-left:25%">
+                                    <button type="button" class="btn btn-success disabled" disabled>
+                                        <span class="fa fa-ban"></span>
+                                    </button>
+                                </div>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-warning disabled" disabled>
+                                    <span class="fa fa-ban"></span>
+                                </button>
+                            </td>
+                        }
+
+
+
+                        <td>
+                            <button type="button" class="btn btn-info" onclick="location.href='@Url.Action("Details", "Commande", new { id = item.Cmd.id })'">
+                                <span class="fa fa-info-circle"></span>
+                            </button>
+                        </td>
+
+
+                    </tr>
+
+                }
+
+            </table>
+        }
+        <hr />
+        <div>
+            @Html.ActionLink("Back to Stock List", "Index", "Commande")
+        </div>
+    </div>
+    
+
+        <div class="col-lg-3 col-md-1" >
+            <!-- Column -->
+            <div id="morris-area-chart2" style="display: none;"></div>
+            <div class="card card-default">
+                <div class="card-header">
+                    <div class="card-actions">
+                        <a class="" data-action="collapse"><i class="ti-minus"></i></a>
+                        <a class="btn-minimize" data-action="expand"><i class="mdi mdi-arrow-expand"></i></a>
+                        <a class="btn-close" data-action="close"><i class="ti-close"></i></a>
+                    </div>
+                    <h4 class="card-title m-b-0">Orders Statistics</h4>
+                </div>
+                <div class="card-body collapse show">
+                    <div id="morris-donut-chart" class="ecomm-donute" style="height: 200px;"></div>
+                    <ul class="list-inline m-t-20 text-center">
+                        <li>
+                            <h6 class="text-muted"><i class="fa fa-circle text-info"></i> Recived</h6>
+                            <h4 class="m-b-0">@Html.Raw(recived)</h4>
+                        </li>
+
+                        <li>
+                            <h6 class="text-muted"> <i class="fa fa-circle text-success"></i> Pending</h6>
+                            <h4 class="m-b-0">@Html.Raw(pending)</h4>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+@section Scripts {
+    <script type="text/javascript">
+        Morris.Donut({
+            element: 'morris-donut-chart',
+            data: [{
+                label: "Pending",
+                value: @Html.Raw(pending),
+
+            }, {
+                label: "Recived",
+                value: @Html.Raw(recived),
+            }],
+            
+            colors: ['#26c6da', '#1976d2', '#ef5350']
+        });
+    </script>
+}
