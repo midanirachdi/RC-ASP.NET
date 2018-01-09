@@ -1,4 +1,6 @@
 ﻿﻿@using RefugeeCamp.Domain.Models
+@using System.Web.UI.WebControls
+@using RefugeeCamp.Domain.Models
 @using RefugeeCamp.Web.Security
 <!DOCTYPE html>
 <html>
@@ -299,7 +301,7 @@
 
                         </li>
                         <li>
-                            <a class="has-arrow waves-effect waves-dark" href="commandes.php" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Events</span></a>
+                            <a class="has-arrow waves-effect waves-dark" href="@Url.Action("Index","Evenement")" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Events</span></a>
 
                         </li>
                         <li>
@@ -314,17 +316,20 @@
                             <a class="has-arrow waves-effect waves-dark" href="commandes.php" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Courses</span></a>
 
                         </li>
-                        
-                            <li>
-                                <a class="has-arrow waves-effect waves-dark" href="@Url.Action("Index","Task")" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">To Do List</span></a>
+                    @if (@SessionPersister.User.GetType() == typeof(Admin))
+                    {
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="@Url.Action("Index", "Task")" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">To Do List</span></a>
 
-                            </li>
-                      
-                            <li>
-                                <a class="has-arrow waves-effect waves-dark" href="@Url.Action("IndexUser","Task")" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">To Do List</span></a>
+                        </li>
+                    }
+                    @if (@SessionPersister.User.GetType() != typeof(Admin))
+                    {
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="@Url.Action("IndexUser", "Task")" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">To Do List</span></a>
 
-                            </li>
-                        
+                        </li>
+                    }  
 
 
                     </ul>

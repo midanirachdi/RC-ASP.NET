@@ -27,7 +27,7 @@ namespace RefugeeCamp.Web.Controllers
         public ActionResult Index(string state)
         {
             if (state == "today")
-                return View(ge.QueryObjectGraph("Campchef", t => t.dateEvent == DateTime.Today));
+                return View(ge.QueryObjectGraph("Campchef", t => t.dateEvent == DateTime.Today ));
             if (state == "happened")
                 return View(ge.QueryObjectGraph("Campchef", t => t.dateEvent < DateTime.Today));
             if (state == "to_come")

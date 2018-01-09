@@ -54,7 +54,7 @@ namespace RefugeeCamp.Web.Controllers
             }
             else return View(f);
         }
-        [ValidateAntiForgeryToken]
+        // [ValidateAntiForgeryToken]
         public ActionResult Delete(int id)
         {
 
