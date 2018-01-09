@@ -27,9 +27,11 @@
          
     </div>
     @if(Model.topic.User_ID==SessionPersister.User.id)
-    {    <div class="card-actions">
-            @Html.ActionLink(@Model.topic.closed?"Open topic":"Close topic","UpdateTopic",new{id=Model.topic.id})
-         </div> }
+    {    
+        <div style="display: inline-table">
+            @Html.ActionLink(@Model.topic.closed?"Open topic":"Close topic","UpdateTopic",new{id=Model.topic.id },new { @class = @Model.topic.closed ? "btn btn-success" : "btn btn-danger" })
+        </div>
+    }
 
 </div>
 

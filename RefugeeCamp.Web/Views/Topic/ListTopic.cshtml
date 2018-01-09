@@ -475,17 +475,26 @@
 
         @using (@Html.BeginForm("SearchTopic", "Topic", FormMethod.Get, new { @id = "search-ipt" }))
         {
-            <div class="row">
-                <div class="col-4"></div>
-                <div class="col-xs-6 col-md-4">
-                    <div class="input-group">
-                    @Html.TextBox("str", "", new { @class = "form-control input-lg", placeholder = "Search for topic",style=""})
-                </div>
-                    <div class="input-group-btn">
+            <div class="row" style="display: flex; justify-content: center;align-content: center">
+                <div class="col-xs-12" >
+                  
+                    <div style="margin-bottom:20px" class="input-group col-xs-6">
+
+
+                              @Html.TextBox("str", "", new { @class = "form-control input-lg", placeholder = "Search for topic",style=""})
+                        <br/>
                         <button class="btn btn-primary" type="submit", form="search-ipt">
                             <span class="fa fa-search"></span>
                         </button>
+                        <div style="margin-left: 600px">
+                            <a class="btn btn-success" href="@Url.Action("AddTopic", "Topic")">
+                                <span class="fa fa-plus"></span>  Add a new topic
+                            </a>
+                                                    </div>
+
                     </div>
+
+                   
                 </div>
             </div>
            

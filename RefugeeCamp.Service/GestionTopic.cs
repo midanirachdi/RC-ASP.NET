@@ -24,13 +24,13 @@ namespace RefugeeCamp.Service
 
             List<string> words = str.ToUpper().Split(' ').ToList();
 
-            List<topic> tpc = FindByCondition().ToList();
-            List<topic> rpc = tpc.FindAll(e => (e.title.ToUpper().Split(' ').ToList().Intersect(words)).Any());
-            List<topic> body = tpc.FindAll(e => (e.body.ToUpper().Split(' ').ToList().Intersect(words)).Any());
+            List<topic> tpc = FindByCondition(e => e.title.Contains(str))
+                .Union(FindByCondition(e => e.body.Contains(str))).ToList();
+    
             
 
          
-            return rpc.Union(body).ToList();
+            return tpc;
         }
         public List<topic> getAllTopics()
         {
