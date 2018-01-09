@@ -1,0 +1,44 @@
+﻿.pie {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow( 0 2px 0px #333 );
+}
+.data-path {
+  &:hover {
+    cursor: pointer;
+  }
+}
+.data-text {
+  transition: transform .2s ease-in-out;
+  fill: #fff;
+  &__value {
+    font-size: 7rem;
+    transform: translateY(-.5rem);
+    opacity: 0;
+  }
+  &__name {
+    font-size: 2rem;
+    transform: translateY(.5rem);
+    opacity: 0;
+  }
+  &--show {
+    transform: translateY(0);
+    animation: fadeGraphTextIn .5s forwards
+  }
+  &:hover {
+    user-select: none;
+  }
+}
+.legend-text {
+  fill: #fff;
+}
+@keyframes fadeGraphTextIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

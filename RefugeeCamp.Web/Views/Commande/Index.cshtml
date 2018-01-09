@@ -9,10 +9,10 @@
 <br />
 <h2>List of available stock </h2>
 <hr />
-<input type="button" value="Manage Providers" class="btn btn-info" onclick="location.href='@Url.Action("Index", "Providers")'" />
-<input type="button" value="List Orders" class="btn btn-info" onclick="location.href='@Url.Action("List", "Commande")'"/>
+<input type="button" value="Manage Providers" class="btn btn-success" onclick="location.href='@Url.Action("Index", "Providers")'" />
+<input type="button" value="List Orders" class="btn btn-success" onclick="location.href='@Url.Action("List", "Commande")'"/>
 <hr />
-<table class="table">
+<table class="table table-striped" style="background-color:white;">
     <tr>
 
         <th>Type of Stock</th>
@@ -35,7 +35,7 @@
             
                
             <td>
-                <input type="button" value="Order Stock" class="btn btn-primary"  onclick="location.href='@Url.Action("Create", "Commande",new { id = item.stockType   })'" />
+                <input type="button" value="Order Stock" class="btn btn-warning"  onclick="location.href='@Url.Action("Create", "Commande",new { id = item.stockType   })'" />
             </td>
         </tr>
     }

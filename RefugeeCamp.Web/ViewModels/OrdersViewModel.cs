@@ -12,5 +12,7 @@ namespace RefugeeCamp.Web.ViewModels
         public string AdminName{ get; set; }
         public string ProviderName { get; set; }
         public string StockType { get; set; }
+        public static int pending { get; set; }
+        public static int recived { get; set; }
     }
 }

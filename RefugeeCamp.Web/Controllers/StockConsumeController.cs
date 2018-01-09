@@ -8,6 +8,9 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using Newtonsoft.Json;
 using System.Threading.Tasks;
+using RefugeeCamp.Service;
+using System.Net;
+using System.IO;
 
 namespace RefugeeCamp.Web.Controllers
 {
@@ -41,7 +44,7 @@ namespace RefugeeCamp.Web.Controllers
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
                 //Sending request to find web api REST service resource doList using HttpClient  
-                HttpResponseMessage Res = await client.GetAsync("refugeesCamp-web/api/stock");
+                HttpResponseMessage Res = await client.GetAsync("http://localhost:18080/refugeesCamp-web/api/stock");
 
                 //Checking the response is successful or not which is sent using HttpClient  
                 if (Res.IsSuccessStatusCode)
@@ -51,13 +54,37 @@ namespace RefugeeCamp.Web.Controllers
 
                     //Deserializing the response recieved from web api and storing into the users list  
                     stockList = JsonConvert.DeserializeObject<List<stock>>(stockResponse);
-
+                    
                 }
                 //returning the employee list to view  
                 return stockList;
             }
         }
 
+        public void UpdateStock(commande cmd)
+        {
+
+            GestionStock gs = new GestionStock();
+            stock st = gs.FindById(cmd.Stock.GetValueOrDefault());
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:18080/refugeesCamp-web/api/stock");
+            httpWebRequest.ContentType = "application/json";
+            httpWebRequest.Method = "POST";
+
+            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            {
+                string json = "	{\"stockType\": \"" + st.stockType + "\",\"qteTotal\": " + cmd.qteOfProduct + ",\"qteInStock\": " + cmd.qteOfProduct + ",\"stockValue\": " + cmd.totalPrice + "}";
+
+                streamWriter.Write(json);
+                streamWriter.Flush();
+                streamWriter.Close();
+            }
+
+            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                var result = streamReader.ReadToEnd();
+            }
+        }
         public async Task<stock> ConsumeStockById(int id)
         {
             stock stockById = new stock();

@@ -269,6 +269,7 @@
     <Compile Include="ViewModels\OrdersViewModel.cs" />
     <Compile Include="ViewModels\ProviderViewModel.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
+    <Compile Include="ViewModels\StatViewModel.cs" />
     <Compile Include="ViewModels\TopicListView.cs" />
     <Compile Include="ViewModels\TopicShowViewModel.cs" />
     <Compile Include="ViewModels\UserTypeSelect.cs" />
@@ -284,6 +285,7 @@
     <Content Include="Content\template\assets\css\animate.css" />
     <Content Include="Content\template\assets\css\colors\blue.css" />
     <Content Include="Content\template\assets\css\colors\default-dark.css" />
+    <Content Include="Content\template\assets\css\donut.css" />
     <Content Include="Content\template\assets\css\spinners.css" />
     <Content Include="Content\template\assets\css\style.css" />
     <Content Include="Content\template\assets\images\alert\alert.png" />
@@ -1962,6 +1964,7 @@
     <Content Include="Views\Commande\List.cshtml" />
     <Content Include="Views\Commande\Details.cshtml" />
     <Content Include="Views\Commande\Update.cshtml" />
+    <Content Include="Views\Commande\Statistics.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2008,7 +2011,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>15790</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:15722/</IISUrl>
+          <IISUrl>http://localhost:16722/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
