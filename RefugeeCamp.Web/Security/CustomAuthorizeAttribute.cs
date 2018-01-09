@@ -17,7 +17,7 @@ namespace RefugeeCamp.Web.Security
             {
                 CustomPrincipal mp = new CustomPrincipal(SessionPersister.User);
                 if (!mp.IsInRole(Roles))
-                    filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "AccessDenied", action = "Index" }));
+                    filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "AccesDenied", action = "Index" }));
             }
         }
 

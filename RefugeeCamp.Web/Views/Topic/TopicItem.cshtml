@@ -1,28 +1,59 @@
 ﻿
+@using System.Text.RegularExpressions
 @model RefugeeCamp.Domain.Models.topic
 
 
 <div class="card">
-    <div class="card-body" >
-        <div class="col-md-10">
-            <h3>@Html.ActionLink(Model.title, "ShowTopic", "Topic", new {id = Model.id}, null)</h3>
-        </div>
-        <div class="col-md-2">
-            <div class="@(Model.closed ?"btn-success":"btn-danger")">
-                <h2 style="text-align: center;">@Model.comments.Count</h2>
-            </div>
-            <p>
-                      
-                @Model.user.FullName
-                <br/>
-                @Model.datePublish
-            </p>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="post">
+                    <div class="wrap-ut pull-left">
+                        <div class="userinfo pull-left">
+                            <div class="avatar">
+                                <img src="~/Content/template/assets/images/user.png" width="70px" alt="">
+                                <div class="status green">&nbsp;</div>
+                            </div>
+
+                            <div class="icons">
+                                <img src="~/Content/template/assets/images/icon1.jpg" alt=""><img src="~/Content/template/assets/images/icon4.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="posttext pull-left">
+                            <h2>@Html.ActionLink(Model.title, "ShowTopic", "Topic", new { id = Model.id }, null)</h2>
+                            <p>
+                                @{
+                                string teaser = Regex.Replace(Model.body, "<.*?>", string.Empty);
+                                if (teaser.Length > 120)
+                                {
+                                    @Html.Raw(teaser.Substring(1, teaser.Length / 2) + "...");
+                                }
+                                else
+                                {
+                                    @Html.Raw(teaser.Substring(1, teaser.Length / 4) + "...");
+                                }
+                            }
+                        </p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="postinfo pull-left">
+                    <div class="comments" >
+                        <div class="commentbg"style="background-color: @(Model.closed?"green":"red")">
+                            @Model.comments.Count
+                            <div class="mark" style="background-color: @(Model.closed?"green":"red")"></div>
+                        </div>
+
+                    </div>
+                    <div class="views"><i class="fa fa-eye"></i> @Model.user.FullName</div>
+                    <div class="time"><i class="fa fa-clock-o"></i> @Model.datePublish</div>
+                </div>
+                <div class="clearfix"></div>
+            </div><!-- POST -->
         </div>
     </div>
 
+    </div>
 </div>
 
-
-    
-    
  

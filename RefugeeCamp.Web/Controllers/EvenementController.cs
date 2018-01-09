@@ -23,7 +23,17 @@ namespace RefugeeCamp.Web.Controllers
         {
             return View(ge.QueryObjectGraph("Campchef"));
         }
-
+        [HttpPost]
+        public ActionResult Index(string state)
+        {
+            if (state == "today")
+                return View(ge.QueryObjectGraph("Campchef", t => t.dateEvent == DateTime.Today));
+            if (state == "happened")
+                return View(ge.QueryObjectGraph("Campchef", t => t.dateEvent < DateTime.Today));
+            if (state == "to_come")
+                return View(ge.QueryObjectGraph("Campchef", t => t.dateEvent > DateTime.Today));
+            return View(ge.QueryObjectGraph("Campchef"));
+        }
         // GET: Evenement/Details/5
         public ActionResult Details(int id)
         {

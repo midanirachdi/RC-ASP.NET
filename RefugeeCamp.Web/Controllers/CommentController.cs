@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using RefugeeCamp.Domain.Models;
 using RefugeeCamp.Service;
 using RefugeeCamp.Web.Security;
@@ -30,12 +31,19 @@ namespace RefugeeCamp.Web.Controllers
             c.body =tsvp.newComment;
             gc.Create(c);
             gc.Commit();
-            
             return RedirectToAction("ShowTopic", "Topic", new {id = tsvp.topic.id});
+           
         }
 
 
+        public ActionResult deleteComment(int id)
+        {
+            comment c = gc.FindById(id);
 
+            gc.Remove(e=>e.id==id);
+            gc.Commit();
+            return RedirectToAction("ShowTopic", "Topic", new {id=c.topic.id});
+        }
         public ActionResult CommentItem(comment comment)
         {
             return PartialView("CommentItem", comment);
