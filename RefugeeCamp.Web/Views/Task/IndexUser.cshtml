@@ -4,90 +4,140 @@
     ViewBag.Title = "IndexUser";
 }
 
-<h2>Your tasks</h2>
+<div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h3 class="text-themecolor">Task Management</h3>
+    </div>
+    <div class="col-md-7 align-self-center">
 
-@using (Html.BeginForm("search"))
-{
-    <table>
-        <tr style="display: flex;align-items: flex-end;">
-            <td>
-                 @Html.TextBox("SearchString", null,new { @class = "form-control" , placeholder = "Search tasks by name"})
-            </td>
-            <td>
-                <input type="submit" value="Search" class="btn btn-primary" />
-            </td>
-        </tr>
-    </table>
-}
-<br />
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.startDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.endDate)
-        </th>
+    </div>
 
-        <th>
-            @Html.DisplayNameFor(model => model.progress)
-        </th>
+</div>
+<div class="container-fluid">
+<div class="col-12">
+        
+    <div class="card">
+        <div class="card-body">
+              
+            @using (Html.BeginForm("search"))
+            {
+                
 
-        <th>
-            @Html.DisplayNameFor(model => model.status)
-        </th>
-
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.startDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.endDate)
-            </td>
-
-            <td>
-                <div class="progress">
-                    <div class="progress-bar progress-bar-striped" 
-                         role="progressbar" aria-valuenow="60" aria-valuemin="0" 
-                         aria-valuemax="100" style="width: 0%; " id="pbarM">
-                        @Html.DisplayFor(modelItem => item.progress)% 
+                <div class="form-group ">
+                    <div class="d-flex flex-row justify-content-between">
+                        <div class="col-xs-6">
+                            <div class="d-flex flex-row">
+                                @*search task by name : @Html.TextBox("SearchString")*@
+                                @Html.TextBox("SearchString", null, new { @class = "form-control", placeholder = "Search task by name" })
+                                <button type="submit" value="Search" class="btn btn-outline-info btn-rounded">
+                                    <i class="fa fa-search"></i>
+                                    Search
+                                </button>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
-            </td>
+
+
+            }
+            <br />
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.description)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.startDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.endDate)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.progress)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.status)
+                    </th>
+
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model) {
+                    <tr>
+                        <td>
+                            @*@Html.DisplayFor(modelItem => item.name)*@
+                            @Html.ActionLink(item.name, "Details", "Task", new { Id = item.id }, null /* html attributes */)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.description)
+                        </td>
+                        <td>
+                            <span class="text-muted">
+                            <i class="fa fa-clock-o"></i> 
+                            @Html.DisplayFor(modelItem => item.startDate)
+                                </span>
+                        </td>
+                        <td>
+                            <span class="text-muted">
+                            <i class="fa fa-clock-o"></i> 
+                            @Html.DisplayFor(modelItem => item.endDate)
+                                </span>
+                        </td>
+
+                        <td>
+                            <div class="progress progress-xs margin-vertical-10">
+                                <div class="progress-bar bg-info wow animated progress-animated" 
+                                     role="progressbar" aria-valuenow="60" aria-valuemin="0" 
+                                     aria-valuemax="100"  id="@item.progress">
+                                    @Html.DisplayFor(modelItem => item.progress)% 
+                                </div>
+                            </div>
+                        </td>
         
-            <td>
-                @Html.DisplayFor(modelItem => item.status)
-            </td>
+                        <td>
+                            <div class="@(item.status.Equals("started")?  "label label-table label-success":"label label-table label-danger")">
+                                @Html.DisplayFor(modelItem => item.status)
+                            </div>
+                        </td>
         
-            <td>
-                @Html.ActionLink("Edit", "EditUser", new {id = item.id}) |
-                @Html.ActionLink("Details", "Details", new {id = item.id})
+                        <td class="text-nowrap">
+                            <a href="@Url.Action("EditUser", "Task", new {id = item.id})" data-toggle="tooltip" data-original-title="Edit">
+                                <i class="fa fa-pencil text-inverse m-r-10"></i>
+                            </a>
 
-            </td>
-        </tr>
-    }
+                        </td>
+                    </tr>
+                }
 
-</table>
-
+            </table>
+        </div>
+    </div>
+</div>
+</div>
 @section scripts{
     <script type="text/javascript">
-        $("#pbarM").css("width", $("#pbarM").text());
-         
+
+
+    @foreach (var item in Model)
+    {
+        <text>
+        $("#@(item.progress)").css("width", $("#@(item.progress)").text().replace(/\s/g, ''));
+
+
+        $("#@(item.progress)").css('animation-duration', '1s').removeClass('progress-bar');
+        setTimeout(function () {
+            $("#@(item.progress)").addClass('progress-bar');
+        }, 1);
+    </text>
+
+    }
+
+
     </script>
 }

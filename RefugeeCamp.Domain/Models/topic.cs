@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text;
 
 namespace RefugeeCamp.Domain.Models
 {
@@ -12,10 +14,13 @@ namespace RefugeeCamp.Domain.Models
         }
 
         public int id { get; set; }
+
+        [Column(TypeName = "Text")]
         public string body { get; set; }
         public bool closed { get; set; }
         public Nullable<System.DateTime> datePublish { get; set; }
         public string title { get; set; }
+        [ForeignKey("user")]
         public Nullable<int> User_ID { get; set; }
         public virtual ICollection<comment> comments { get; set; }
         public virtual user user { get; set; }

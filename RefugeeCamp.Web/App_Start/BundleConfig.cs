@@ -12,7 +12,8 @@ namespace RefugeeCamp.Web
                 //"~/Content/bootstrap.css",
                 "~/Content/bootstrap-datetimepicker.css",
                 "~/Content/site.css",
-                "~/Content/themes/base/jquery-ui.css"));
+                "~/Content/themes/base/jquery-ui.css",
+                "~/Content/template/assets/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/jquerySignalR").Include(
                 "~/Scripts/jquery.signalR-2.2.2.js",
@@ -42,10 +43,20 @@ namespace RefugeeCamp.Web
                 //"~/Scripts/bootstrap.js",
                 "~/Scripts/bootstrap-datetimepicker.js",
                 "~/Scripts/bootstrap-datetimepicker.fr.js",
-                      "~/Scripts/respond.js"));
+                      "~/Scripts/respond.js",
+                      "~/Content/template/assets/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"));
 
 
-         
+            bundles.Add(new StyleBundle("~/Content/khrcss").Include(
+                "~/Content/summernote.css",
+                "~/Content/tagsly.css"));
+
+            bundles.Add(new ScriptBundle("~/Scripts/khrscripts").Include(
+                "~/Scripts/summernote.js",
+                "~/Scripts/tagsly.js"));
+
+
+
 
         }
     }

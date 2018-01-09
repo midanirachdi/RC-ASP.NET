@@ -21,5 +21,7 @@ namespace RefugeeCamp.Data.Infrastructures
             Expression<Func<T, bool>> orederby = null);
 
         IQueryable<T> QueryObjectGraph(string children, Expression<Func<T, bool>> filter = null);
+        void RefreshDatabase(T entity);
+
     }
 }

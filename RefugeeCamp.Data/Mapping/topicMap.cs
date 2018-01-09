@@ -11,8 +11,7 @@ namespace RefugeeCamp.Data.Mapping
             this.HasKey(t => t.id);
 
             // Properties
-            this.Property(t => t.body)
-                .HasMaxLength(255);
+            this.Property(t => t.body);
 
             this.Property(t => t.title)
                 .HasMaxLength(255);

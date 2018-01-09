@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Linq.Expressions;
 
@@ -44,6 +46,7 @@ namespace RefugeeCamp.Data.Infrastructures
             {
                 dbset.Remove(item);
             }
+           
         }
 
         public void remove(T entity)
@@ -84,6 +87,15 @@ namespace RefugeeCamp.Data.Infrastructures
             }
             return dbset.Where(condition).OrderBy(orederby);
         }
-       
+
+
+
+        public void RefreshDatabase(T entity)
+        {
+            ((IObjectContextAdapter)this.ctx)
+                .ObjectContext
+                .Refresh(RefreshMode.StoreWins, entity);
+        }
+
     }
 }

@@ -8,10 +8,18 @@
     <title>Refugees camp management website</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
+    @Styles.Render("~/Content/khrcss")
+    @RenderSection("Styles",false)
+    
+
     <link href="~/Content/template/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/Content/template/assets/plugins/morrisjs/morris.css" rel="stylesheet">
+    <link href="~/Content/template/assets/plugins/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
     <link href="~/Content/template/assets/css/style.css" rel="stylesheet">
     <link href="~/Content/template/assets/css/colors/blue.css" id="theme" rel="stylesheet">
+
+
 
 </head>
 <body class="fix-header fix-sidebar card-no-border logo-center">
@@ -293,7 +301,7 @@
                     <ul id="sidebarnav">
                         <li class="nav-small-cap">Admin</li>
                         <li>
-                            <a class="has-arrow waves-effect waves-dark" href="forum.php" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Forum</span></a>
+                            <a class="has-arrow waves-effect waves-dark" href="@Url.Action("Index","Topic")" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Forum</span></a>
 
                         </li>
                         <li>
@@ -321,7 +329,9 @@
                             <li>
                                 <a class="has-arrow waves-effect waves-dark" href="@Url.Action("IndexUser","Task")" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">To Do List</span></a>
 
+
                             </li>
+
                         
 
 
@@ -369,7 +379,7 @@
         <div class="container body-content page-wrapper">
             @RenderBody()
             <div class="notificationBalloon" id="container" style="float: right"> </div>
-            <hr />
+          
 
         </div>
     </div>
@@ -401,7 +411,9 @@
     <!-- ============================================================== -->
     <!-- Style switcher -->
     <!-- ============================================================== -->
-    <script src="~/Content/template/assets/plugins/nestable/jquery.nestable.js"></script>
+<script src="~/Content/template/assets/plugins/nestable/jquery.nestable.js"></script>
+<script src="~/Content/template/assets/plugins/sweetalert/sweetalert.min.js"></script>
+<script src="~/Content/template/assets/plugins/sweetalert/jquery.sweet-alert.custom.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             // Nestable
@@ -445,24 +457,50 @@
     @*@Scripts.Render("~/bundles/jquery")*@
     @Scripts.Render("~/bundles/jqueryui")
     @Scripts.Render("~/bundles/jquerySignalR")
+    @Scripts.Render("~/Scripts/khrscripts")
+
+<script src="/signalr/hubs"></script>    
+
     <script src="/signalr/hubs"></script>
     @Scripts.Render("~/bundles/bootstrap")
     <script type="text/javascript">
         $(function () {
+            var SweetAlert = function () { };
             var proxy = $.connection.notificationHub;
             proxy.client.receiveNotification = function (message) {
-                $.notify(
-                    message,
-                    {
-                        autoHideDelay: 5000,
-                        position: "top right",
-                        className: "success"
-                    }
-                );
+                
+                if (message.includes("ajoutée"))
+                   
+                swal({
+                    title: "Success!",
+                    text: message,
+                    type: "success",
+                    showConfirmButton: false
+                });
+                if (message.includes("modifiée"))
+
+                    swal({
+                        title: "Success!",
+                        text: message,
+                        type: "success",
+                        showConfirmButton: false
+                    });
+                if (message.includes("supprimée"))
+
+                    swal({
+                        title: "Deleted!",
+                        text: message,
+                        type: "error",
+                        showConfirmButton: false
+                    });
+
             };
             $.connection.hub.start();
         });
     </script>
     @RenderSection("scripts", required: false)
+
+
+
 </body>
 </html>
