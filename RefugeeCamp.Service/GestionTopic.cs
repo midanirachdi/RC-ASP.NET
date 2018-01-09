@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Core.Metadata.Edm;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,7 +34,15 @@ namespace RefugeeCamp.Service
         }
         public List<topic> getAllTopics()
         {
-            return FindByCondition().ToList();
+            return utw.GetRepository<topic>().MyContext.topics.Include("user").ToList();
+        }
+
+
+        public topic getByIdWithComments(int id)
+        {
+           
+            topic t=utw.GetRepository<topic>().MyContext.topics.Include("comments").SingleOrDefault(x => x.id == id);
+            return t;
         }
     }
 }

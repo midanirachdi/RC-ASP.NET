@@ -239,16 +239,23 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DonationController.cs" />
     <Compile Include="Controllers\EvenementController.cs" />
+    <Compile Include="Controllers\CommandeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TagController.cs" />
     <Compile Include="Controllers\MedicalFolderAPIController.cs" />
     <Compile Include="Controllers\MedicalFolderController.cs" />
+    <Compile Include="Controllers\ProvidersController.cs" />
+    <Compile Include="Controllers\StockConsumeController.cs" />
     <Compile Include="Controllers\TaskController.cs" />
     <Compile Include="Controllers\TopicController.cs" />
     <Compile Include="Controllers\WebServiceConsumeController.cs" />
+    <Compile Include="CustomUserIdProvider.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Country.cs" />
+    <Compile Include="Models\DropDownList.cs" />
+    <Compile Include="Models\ListProvider.cs" />
     <Compile Include="Security\CustomAuthorizeAttribute.cs" />
     <Compile Include="Security\CustomPrincipal.cs" />
     <Compile Include="Security\SessionPersister.cs" />
@@ -258,6 +265,9 @@
     <Compile Include="ViewModels\AccountViewModel.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="ViewModels\AddTopicModelView.cs" />
+    <Compile Include="ViewModels\CommandeViewModel.cs" />
+    <Compile Include="ViewModels\OrdersViewModel.cs" />
+    <Compile Include="ViewModels\ProviderViewModel.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Compile Include="ViewModels\TopicListView.cs" />
     <Compile Include="ViewModels\TopicShowViewModel.cs" />
@@ -1871,6 +1881,7 @@
     <Content Include="Content\template\assets\scss\icons\weather-icons\sass\weather-icons.min.scss" />
     <Content Include="Content\template\assets\scss\icons\weather-icons\sass\weather-icons.scss" />
     <None Include="Scripts\jquery-1.12.4.intellisense.js" />
+    <Content Include="Scripts\ExportPDF.js" />
     <Content Include="Scripts\jquery-1.12.4.js" />
     <Content Include="Scripts\jquery-1.12.4.min.js" />
     <Content Include="Scripts\jquery-1.12.4.min.map" />
@@ -1936,12 +1947,21 @@
     <Content Include="Views\Topic\ShowTopic.cshtml" />
     <Content Include="Views\Comment\CommentItem.cshtml" />
     <Content Include="Views\Topic\AddTopic.cshtml" />
+    <Content Include="Views\Commande\Index.cshtml" />
+    <Content Include="Views\StockConsume\Index.cshtml" />
+    <Content Include="Views\Commande\Create.cshtml" />
+    <Content Include="Views\Providers\Index.cshtml" />
+    <Content Include="Views\Providers\Create.cshtml" />
     <Content Include="Views\Evenement\Index.cshtml" />
     <Content Include="Views\Evenement\Details.cshtml" />
     <Content Include="Views\Evenement\Edit.cshtml" />
     <Content Include="Views\Evenement\Delete.cshtml" />
     <Content Include="Views\Evenement\Create.cshtml" />
     <Content Include="Views\Donation\Create.cshtml" />
+    <Content Include="Views\Providers\Update.cshtml" />
+    <Content Include="Views\Commande\List.cshtml" />
+    <Content Include="Views\Commande\Details.cshtml" />
+    <Content Include="Views\Commande\Update.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

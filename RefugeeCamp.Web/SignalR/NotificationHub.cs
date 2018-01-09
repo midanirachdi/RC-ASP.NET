@@ -5,10 +5,10 @@ namespace RefugeeCamp.Web.SignalR
     public class NotificationHub : Hub
     {
         
-        public void SendNotifications(string message)
+        public void SendNotifications(string userId,string message)
         {
-            Clients.All.receiveNotification(message);
-            //Clients.User(userId).receiveNotification(message);
+           // Clients.All.receiveNotification(message);
+          Clients.User(userId).receiveNotification(message);
         }
         
     }

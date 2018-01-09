@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,17 @@ namespace RefugeeCamp.Service
 
         public GestionComment() : base(utw)
         {
+        }
+
+
+
+        public comment getCommentWithInclude(int id)
+        {
+            
+            comment c = utw.GetRepository<comment>().MyContext.comments.Include("topic")
+                .SingleOrDefault(cc => cc.id == id);
+     
+            return c;
         }
 
 

@@ -31,10 +31,11 @@ namespace RefugeeCamp.Web.Controllers
             return View("TopicItem",topic);
         }
 
-        [OutputCache(Location = System.Web.UI.OutputCacheLocation.None)]
+
         public ActionResult ShowTopic(int id)
         {
-            topic t = gt.FindById(id);
+            
+            topic t = gt.getByIdWithComments(id);
           //  List<comment> comments = gc.FindByCondition(e => e.topic.id == id).ToList();
           //  t.comments = comments;
             TopicShowViewModel tsvm = new TopicShowViewModel

@@ -5,6 +5,10 @@ namespace RefugeeCamp.Domain.Models
 {
     public partial class course
     {
+        public course()
+        {
+
+        }
         public int id { get; set; }
         public string description { get; set; }
         public Nullable<System.DateTime> enddate { get; set; }

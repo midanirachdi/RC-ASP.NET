@@ -1,0 +1,44 @@
+﻿@model IEnumerable<RefugeeCamp.Domain.Models.provider>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "Providers List";
+}
+<br />
+<h2>Providers List</h2>
+<hr />
+<input type="button" value="Add Provider" class="btn btn-info" onclick="location.href='@Url.Action("Create", "Providers")'" />
+<hr />
+<table class="table">
+    <tr>
+
+        <th>Nom</th>
+        <th>Address</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>@Html.DisplayFor(modelItem => item.nom)</td>
+            <td>@Html.DisplayFor(modelItem => item.adresse)</td>
+            <td>@Html.DisplayFor(modelItem => item.email)</td>
+            <td>@Html.DisplayFor(modelItem => item.tel)</td>
+            <td>
+                <input type="button" value="Update Infos" class="btn btn-primary" onclick="location.href='@Url.Action("Update", "Providers",new { id = item.id   })'" />
+            </td>
+            <td>
+                <input type="button" value="Delete" class="btn btn-danger" onclick="location.href='@Url.Action("Delete", "Providers",new { id = item.id   })'" />
+            </td>
+        </tr>
+    }
+
+</table>
+<hr />
+<div>
+    @Html.ActionLink("Back to Orders List","Index" ,"Commande")
+</div>

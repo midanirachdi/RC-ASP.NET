@@ -1,0 +1,83 @@
+﻿@model RefugeeCamp.Web.ViewModels.OrdersViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<br />
+<h2>Order Detail</h2>
+<hr />
+<div>
+
+    <div class="center-block">
+        <table class="table-striped table-bordered" style="background-color:white; width:70%;margin-left:15%;">
+            <tr>
+                <td class="text-primary font-normal">Ordered By</td>
+                <td>@Html.DisplayFor(model => model.AdminName)</td>
+            </tr>
+            <tr>
+                <td class="text-primary font-normal">Provider</td>
+                <td>@Html.DisplayFor(model => model.ProviderName)</td>
+            </tr>
+            <tr>
+                <td class="text-primary font-normal">Stock Type</td>
+                <td>@Html.DisplayFor(model => model.StockType)</td>
+            </tr>
+            <tr>
+                <td class="text-primary font-normal">Address</td>
+                <td>@Html.DisplayFor(model => model.Cmd.address)</td>
+            </tr>
+            <tr>
+                <td class="text-primary font-normal">Country</td>
+                <td>@Html.DisplayFor(model => model.Cmd.country)</td>
+            </tr>
+            <tr>
+                <td class="text-primary font-normal">Status</td>
+                <td>
+                    @if (Model.Cmd.status == 0)
+                    {
+                        <p class="text-warning">Pending</p>
+                    }
+                    else
+                    {
+                        <p class="text-success">Recived</p>
+                    }
+                </td>
+            </tr>
+            <tr class="text-primary font-normal">
+                <td>Order Date</td>
+                <td>@Html.DisplayFor(model => model.Cmd.ordered)</td>
+            </tr>
+            <tr>
+                <td class="text-primary font-normal">Shipped date</td>
+                <td>
+                @if (Model.Cmd.shipped==null)
+                {
+                 <p class="text-danger">Not recived yet</p>
+                }
+                else
+                {
+                    @Html.DisplayFor(model => model.Cmd.shipped)
+                }
+                </td>
+            </tr>
+
+            
+            <tr>
+                <td class="text-primary font-normal">Quantity of product</td>
+                <td>@Html.DisplayFor(model => model.Cmd.qteOfProduct)</td>
+            </tr>
+            <tr>
+                <td class="text-primary font-normal">Total Price</td>
+                <td>@Html.DisplayFor(model => model.Cmd.totalPrice)</td>
+            </tr>
+            
+        </table>
+    </div>
+   
+</div>
+<hr />
+<div>
+    @Html.ActionLink("Back to Orders List", "List", "Commande")
+</div>

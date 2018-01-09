@@ -38,15 +38,18 @@ namespace RefugeeCamp.Web.Controllers
 
         public ActionResult deleteComment(int id)
         {
-            comment c = gc.FindById(id);
-
+            comment c = gc.getCommentWithInclude(id);
+            int tid = c.topic.id;
             gc.Remove(e=>e.id==id);
             gc.Commit();
-            return RedirectToAction("ShowTopic", "Topic", new {id=c.topic.id});
+            return RedirectToAction("ShowTopic", "Topic", new {id=tid});
         }
         public ActionResult CommentItem(comment comment)
         {
             return PartialView("CommentItem", comment);
         }
+
+
+
     }
 }
