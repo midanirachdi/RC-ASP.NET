@@ -9,7 +9,12 @@ namespace RefugeeCamp.Data
         static refugeescampContext()
         {
             Database.SetInitializer<refugeescampContext>(null);
+            
         }
+
+
+
+
 
         public refugeescampContext()
             : base("Name=refugeescampContext")

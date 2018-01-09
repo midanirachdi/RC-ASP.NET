@@ -24,7 +24,7 @@ namespace RefugeeCamp.Web.Security
         public bool IsInRole(string role)
         {
             var roles = role.Split(new char[] { ',' });
-            return roles.Any(r => this.User.GetType().BaseType.Name.Equals(r));
+            return roles.Any(r => this.User.GetType().Name.Equals(r));
         }
     }
 }

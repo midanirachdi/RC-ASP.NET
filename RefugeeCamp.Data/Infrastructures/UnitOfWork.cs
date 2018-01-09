@@ -31,6 +31,14 @@
         public RespositoryBase<T> GetRepository<T>() where T : class
         {
             return new RespositoryBase<T>(dbfactory);
+            
         }
+
+
+
+
+
+        
+
     }
 }

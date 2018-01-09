@@ -1,0 +1,66 @@
+﻿@using System.Web.Mvc.Html
+@using RefugeeCamp.Web.Security
+@model RefugeeCamp.Web.ViewModels.TopicShowViewModel
+    
+
+@section Styles
+{
+    <style>
+        .boxsizingBorder {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+    </style>
+}
+
+<div class="card">
+    <div class="card-body">
+        <h1>
+            @Model.topic.title
+        </h1> 
+        
+        
+        <p>
+           @Html.Raw(@Model.topic.body) 
+        </p>
+         
+    </div>
+    @if(Model.topic.User_ID==SessionPersister.User.id)
+    {    <div class="card-actions">
+            @Html.ActionLink(@Model.topic.closed?"Open topic":"Close topic","UpdateTopic",new{id=Model.topic.id})
+         </div> }
+
+</div>
+
+
+
+
+
+
+
+<div class="container" style="margin-left: 15%;">
+  
+    <div class="col-8">
+        <div class="card">
+            <div class="card-body">
+                @foreach (var item in Model.topic.comments)
+                {
+                    Html.RenderAction("CommentItem", "Comment", new {comment = item});
+                }
+                <div>
+                    @using (@Html.BeginForm("AddCommentToTopic", "Comment", FormMethod.Post, new {@id = "form"}))
+                    {
+                        @Html.HiddenFor(m=>m.topic.id,new{value=@Model.topic.id})
+                        @Html.TextAreaFor(m=>m.newComment,new{@class= "form-control boxsizingBorder",@id="newComment"})
+                        <input type="submit" form="form" value="Submit"/>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+</div>
+
+
